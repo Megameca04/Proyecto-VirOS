@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwgc11jg5r8lh"
-path="res://.godot/imported/fondoor.png-2f695d8c29fa355c79ebf4c690ff1775.ctex"
+uid="uid://drxyqexjwvrek"
+path="res://.godot/imported/virus.png-082522002ae04524f932674a9cd7e1e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fondoor.png"
-dest_files=["res://.godot/imported/fondoor.png-2f695d8c29fa355c79ebf4c690ff1775.ctex"]
+source_file="res://Sprites/virus.png"
+dest_files=["res://.godot/imported/virus.png-082522002ae04524f932674a9cd7e1e3.ctex"]
 
 [params]
 

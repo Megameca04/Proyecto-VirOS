@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://dssj3r76nyg07"]
+
+[ext_resource type="Script" path="res://Scripts/Escritorio.gd" id="1_6hoyn"]
+[ext_resource type="Texture2D" uid="uid://bwgc11jg5r8lh" path="res://Sprites/fondoor.png" id="1_gagr4"]
+[ext_resource type="PackedScene" uid="uid://dk2wj8bmajkf0" path="res://Escenas/Ventana.tscn" id="2_ifw5m"]
+
+[node name="Escritorio" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6hoyn")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_gagr4")
+expand_mode = 5
+stretch_mode = 6
+
+[node name="Ventana" parent="." instance=ExtResource("2_ifw5m")]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 100.0
+offset_right = 930.0
+offset_bottom = 420.0
+
+[node name="Ventana2" parent="." instance=ExtResource("2_ifw5m")]
+offset_left = 133.0
+offset_top = 61.0
+offset_right = 703.0
+offset_bottom = 381.0
