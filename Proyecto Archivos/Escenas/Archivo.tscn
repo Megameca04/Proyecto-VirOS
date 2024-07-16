@@ -1,25 +1,59 @@
-[gd_scene load_steps=3 format=3 uid="uid://be81yo730xtn5"]
+[gd_scene load_steps=7 format=3 uid="uid://be81yo730xtn5"]
 
 [ext_resource type="Script" path="res://Scripts/Archivo.gd" id="1_dhyxv"]
 [ext_resource type="Texture2D" uid="uid://8dio6s3qg2i2" path="res://Sprites/archivo.png" id="1_v4fds"]
 
-[node name="Archivo" type="MarginContainer" groups=["Archivo"]]
+[sub_resource type="Theme" id="Theme_dlcfb"]
+
+[sub_resource type="Theme" id="Theme_ck5en"]
+MarginContainer/constants/margin_bottom = 4
+MarginContainer/constants/margin_left = 4
+MarginContainer/constants/margin_right = 4
+MarginContainer/constants/margin_top = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fbs3w"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.988235, 1, 0, 1)
+
+[sub_resource type="Theme" id="Theme_gx217"]
+Panel/styles/panel = SubResource("StyleBoxFlat_fbs3w")
+
+[node name="Archivo" type="Container" groups=["Archivo"]]
 texture_filter = 1
-custom_minimum_size = Vector2(64, 64)
+custom_minimum_size = Vector2(72, 72)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -35.0
-offset_top = -35.0
-offset_right = 29.0
-offset_bottom = 29.0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = SubResource("Theme_dlcfb")
 script = ExtResource("1_dhyxv")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(72, 72)
+layout_mode = 2
+theme = SubResource("Theme_ck5en")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
 layout_mode = 2
 texture = ExtResource("1_v4fds")
 stretch_mode = 4
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(72, 72)
+layout_mode = 2
+mouse_filter = 2
+theme = SubResource("Theme_gx217")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

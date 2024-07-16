@@ -1,5 +1,7 @@
 extends Control
 
+signal focussed(window)
+
 enum ClickStates {
 	NONE,
 	PRESSED
@@ -11,17 +13,19 @@ var on_top_bar := false
 var on_window := false
 var offset := Vector2.ZERO
 
+func _ready():
+	connect("focussed",Callable(get_parent(),"focuss_window"))
+	print("focussed conectada")
+	for i in randi_range(1,5):
+		var new_file = preload("res://Escenas/Archivo.tscn").instantiate()
+		$Cuerpo/ScrollContainer/GridContainer.add_child(new_file)
+
 func _physics_process(delta):
-	$Cuerpo/Label.text =(
-		"Click: " + str(current_click) +
-		"\nOn_TB: " + str(on_top_bar) +
-		"\nOn_window: " +str(on_window)+
-		"\nZ_index: " + str(z_index)
-		)
 	
 	if Input.is_action_just_pressed("l_click"):
 		if on_top_bar or on_window:
 			move_to_front()
+			focussed.emit(self)
 	
 	if on_top_bar:
 		if current_click == ClickStates.PRESSED:

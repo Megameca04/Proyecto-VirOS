@@ -28,9 +28,9 @@ stretch_mode = 6
 
 [node name="Ventana" parent="." instance=ExtResource("2_ifw5m")]
 layout_mode = 0
-offset_left = 100.0
+offset_left = 360.0
 offset_top = 100.0
-offset_right = 670.0
+offset_right = 930.0
 offset_bottom = 420.0
 
 [node name="ManejoArchivos" parent="." instance=ExtResource("4_l2j8n")]
@@ -38,9 +38,3 @@ layout_mode = 0
 offset_top = -120.0
 offset_right = 104.0
 offset_bottom = -8.0
-
-[node name="Ventana2" parent="." instance=ExtResource("2_ifw5m")]
-offset_left = 570.0
-offset_top = 190.0
-offset_right = 1140.0
-offset_bottom = 510.0
