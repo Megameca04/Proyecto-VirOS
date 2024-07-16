@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://dk2wj8bmajkf0"]
+[gd_scene load_steps=3 format=3 uid="uid://dk2wj8bmajkf0"]
+
+[ext_resource type="Script" path="res://Ventana.gd" id="1_tgup3"]
+[ext_resource type="Texture2D" uid="uid://cbt3hv7tyubn4" path="res://prueba.png" id="2_hedty"]
 
 [node name="Control" type="Control"]
 custom_minimum_size = Vector2(200, 200)
@@ -6,13 +9,15 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 640.0
 offset_bottom = 400.0
+script = ExtResource("1_tgup3")
 
-[node name="Parte Superior" type="Panel" parent="."]
+[node name="Barra_titulo" type="Panel" parent="."]
 modulate = Color(0, 0.141176, 1, 1)
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.1
+mouse_default_cursor_shape = 2
 
 [node name="Parte Inferior" type="Panel" parent="."]
 layout_mode = 1
@@ -25,6 +30,7 @@ grow_vertical = 2
 
 [node name="GridContainer" type="GridContainer" parent="Parte Inferior"]
 custom_minimum_size = Vector2(150, 150)
+layout_direction = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.042
@@ -37,60 +43,16 @@ offset_right = 0.0799866
 offset_bottom = 0.0169983
 grow_horizontal = 2
 grow_vertical = 2
-columns = 10
+columns = 8
 
-[node name="ColorRect" type="ColorRect" parent="Parte Inferior/GridContainer"]
-custom_minimum_size = Vector2(32, 32)
+[node name="TextureRect" type="TextureRect" parent="Parte Inferior/GridContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(16, 64)
 layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_hedty")
+expand_mode = 3
+stretch_mode = 5
 
-[node name="ColorRect2" type="ColorRect" parent="Parte Inferior/GridContainer"]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-
-[node name="ColorRect3" type="ColorRect" parent="Parte Inferior/GridContainer"]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-
-[node name="ColorRect4" type="ColorRect" parent="Parte Inferior/GridContainer"]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-
-[node name="ColorRect5" type="ColorRect" parent="Parte Inferior/GridContainer"]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-
-[node name="ColorRect6" type="ColorRect" parent="Parte Inferior/GridContainer"]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-
-[node name="ColorRect7" type="ColorRect" parent="Parte Inferior/GridContainer"]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-
-[node name="ColorRect8" type="ColorRect" parent="Parte Inferior/GridContainer"]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-
-[node name="ColorRect9" type="ColorRect" parent="Parte Inferior/GridContainer"]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-
-[node name="ColorRect10" type="ColorRect" parent="Parte Inferior/GridContainer"]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-
-[node name="ColorRect11" type="ColorRect" parent="Parte Inferior/GridContainer"]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-
-[node name="ColorRect12" type="ColorRect" parent="Parte Inferior/GridContainer"]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-
-[node name="ColorRect13" type="ColorRect" parent="Parte Inferior/GridContainer"]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-
-[node name="ColorRect14" type="ColorRect" parent="Parte Inferior/GridContainer"]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
+[connection signal="mouse_entered" from="Barra_titulo" to="." method="_on_barra_titulo_mouse_entered"]
+[connection signal="mouse_exited" from="Barra_titulo" to="." method="_on_barra_titulo_mouse_exited"]
