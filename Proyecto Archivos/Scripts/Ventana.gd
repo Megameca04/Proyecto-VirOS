@@ -1,6 +1,6 @@
 extends Control
 
-signal focussed(window)
+signal focussed(window : Object, file : Object, button : int)
 
 enum ClickStates {
 	NONE,
@@ -14,18 +14,20 @@ var on_window := false
 var offset := Vector2.ZERO
 
 func _ready():
-	connect("focussed",Callable(get_parent(),"focuss_window"))
+	connect("focussed",Callable(get_parent(),"clicked_file"))
 	print("focussed conectada")
 	for i in randi_range(1,5):
 		var new_file = preload("res://Escenas/Archivo.tscn").instantiate()
+		
 		$Cuerpo/ScrollContainer/GridContainer.add_child(new_file)
+		
+		new_file.connect("clicked", Callable(self,"get_clicked_file"))
 
 func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("l_click"):
 		if on_top_bar or on_window:
 			move_to_front()
-			focussed.emit(self)
 	
 	if on_top_bar:
 		if current_click == ClickStates.PRESSED:
@@ -38,6 +40,9 @@ func _input(event):
 		current_click = ClickStates.PRESSED
 	if event.is_action_released("l_click"):
 		current_click = ClickStates.NONE
+
+func get_clicked_file(file : Object, button : int):
+	focussed.emit(self, file, button)
 
 func _on_barra_titulo_mouse_entered():
 	on_top_bar = true

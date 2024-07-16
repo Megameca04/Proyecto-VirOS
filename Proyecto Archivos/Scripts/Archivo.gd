@@ -4,10 +4,6 @@ signal clicked(file : Object, button : int)
 
 var is_selected = false
 
-func _ready():
-	get_tree().get_nodes_in_group("Escritorio")[0].connect_file(self)
-	print("clicked conectada")
-
 func _process(delta):
 	if is_selected:
 		$Panel.show()

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://d06pvvkvdsxrk"]
+
+[ext_resource type="Script" path="res://Scripts/Virus.gd" id="1_3y2jd"]
+[ext_resource type="PackedScene" uid="uid://d2yiplwctcac8" path="res://Escenas/virus.tscn" id="2_vbtwl"]
+
+[node name="Generador de virus" type="Node2D"]
+script = ExtResource("1_3y2jd")
+
+[node name="Virus" parent="." instance=ExtResource("2_vbtwl")]
+offset_left = 74.0
+offset_top = 54.0
+offset_right = 114.0
+offset_bottom = 94.0
