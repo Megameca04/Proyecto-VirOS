@@ -23,7 +23,13 @@ func _ready():
 		
 		new_file.connect("clicked", Callable(self,"get_clicked_file"))
 
-func _physics_process(delta):
+func _physics_process(delta): 
+	$Cuerpo/Label.text =(
+		"Click: " + str(current_click) +
+		"\nOn_TB: " + str(on_top_bar) +
+		"\nOn_window: " +str(on_window)+
+		"\nZ_index: " + str(z_index)
+		)
 	
 	if Input.is_action_just_pressed("l_click"):
 		if on_top_bar or on_window:
