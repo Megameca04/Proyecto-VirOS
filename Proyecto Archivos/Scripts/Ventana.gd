@@ -21,6 +21,16 @@ func _ready():
 		$Cuerpo/ScrollContainer/GridContainer.add_child(new_file)
 
 func _physics_process(delta):
+
+func _physics_process(delta): 
+	var timer = $Timer.get_time_left()
+	$Cuerpo/Label.text =(
+		"Click: " + str(current_click) +
+		"\nOn_TB: " + str(on_top_bar) +
+		"\nOn_window: " +str(on_window)+
+		"\nZ_index: " + str(z_index)+
+		"\nTimer: " + str(timer)
+		)
 	
 	if Input.is_action_just_pressed("l_click"):
 		if on_top_bar or on_window:
