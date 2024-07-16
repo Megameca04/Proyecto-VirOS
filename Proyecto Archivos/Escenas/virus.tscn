@@ -1,14 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://dy2fljojcj05"]
+[gd_scene load_steps=3 format=3 uid="uid://d2yiplwctcac8"]
 
 [ext_resource type="Script" path="res://Scripts/virus.gd" id="1_heue4"]
 [ext_resource type="Texture2D" uid="uid://drxyqexjwvrek" path="res://Sprites/virus.png" id="2_inedp"]
 
 [node name="Virus" type="MarginContainer"]
 custom_minimum_size = Vector2(64, 64)
-offset_left = 252.0
-offset_top = 153.0
-offset_right = 292.0
-offset_bottom = 193.0
+offset_right = 64.0
+offset_bottom = 64.0
 script = ExtResource("1_heue4")
 
 [node name="TextureRect" type="TextureRect" parent="."]
