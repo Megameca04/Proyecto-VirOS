@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dk2wj8bmajkf0"]
+[gd_scene load_steps=6 format=3 uid="uid://dk2wj8bmajkf0"]
 
 [ext_resource type="Script" path="res://Scripts/Ventana.gd" id="1_tgup3"]
 [ext_resource type="PackedScene" uid="uid://be81yo730xtn5" path="res://Escenas/Archivo.tscn" id="2_7iwt6"]
+[ext_resource type="Script" path="res://Scripts/Generador.gd" id="2_cjjag"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a5q7s"]
 bg_color = Color(0.827451, 0.827451, 0.827451, 1)
@@ -22,6 +23,10 @@ offset_right = 570.0
 offset_bottom = 320.0
 theme = SubResource("Theme_qckmx")
 script = ExtResource("1_tgup3")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
 
 [node name="BarraTitulo" type="Panel" parent="."]
 modulate = Color(0, 0.141176, 1, 1)
@@ -61,68 +66,12 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 8
+script = ExtResource("2_cjjag")
 
 [node name="Archivo" parent="Cuerpo/ScrollContainer/GridContainer" instance=ExtResource("2_7iwt6")]
 layout_mode = 2
 
 [node name="Archivo2" parent="Cuerpo/ScrollContainer/GridContainer" instance=ExtResource("2_7iwt6")]
-layout_mode = 2
-
-[node name="Archivo3" parent="Cuerpo/ScrollContainer/GridContainer" instance=ExtResource("2_7iwt6")]
-layout_mode = 2
-
-[node name="Archivo4" parent="Cuerpo/ScrollContainer/GridContainer" instance=ExtResource("2_7iwt6")]
-layout_mode = 2
-
-[node name="Archivo5" parent="Cuerpo/ScrollContainer/GridContainer" instance=ExtResource("2_7iwt6")]
-layout_mode = 2
-
-[node name="Archivo6" parent="Cuerpo/ScrollContainer/GridContainer" instance=ExtResource("2_7iwt6")]
-layout_mode = 2
-
-[node name="Archivo7" parent="Cuerpo/ScrollContainer/GridContainer" instance=ExtResource("2_7iwt6")]
-layout_mode = 2
-
-[node name="Archivo8" parent="Cuerpo/ScrollContainer/GridContainer" instance=ExtResource("2_7iwt6")]
-layout_mode = 2
-
-[node name="Archivo9" parent="Cuerpo/ScrollContainer/GridContainer" instance=ExtResource("2_7iwt6")]
-layout_mode = 2
-
-[node name="Archivo10" parent="Cuerpo/ScrollContainer/GridContainer" instance=ExtResource("2_7iwt6")]
-layout_mode = 2
-
-[node name="Archivo11" parent="Cuerpo/ScrollContainer/GridContainer" instance=ExtResource("2_7iwt6")]
-layout_mode = 2
-
-[node name="Archivo12" parent="Cuerpo/ScrollContainer/GridContainer" instance=ExtResource("2_7iwt6")]
-layout_mode = 2
-
-[node name="Archivo13" parent="Cuerpo/ScrollContainer/GridContainer" instance=ExtResource("2_7iwt6")]
-layout_mode = 2
-
-[node name="Archivo14" parent="Cuerpo/ScrollContainer/GridContainer" instance=ExtResource("2_7iwt6")]
-layout_mode = 2
-
-[node name="Archivo15" parent="Cuerpo/ScrollContainer/GridContainer" instance=ExtResource("2_7iwt6")]
-layout_mode = 2
-
-[node name="Archivo16" parent="Cuerpo/ScrollContainer/GridContainer" instance=ExtResource("2_7iwt6")]
-layout_mode = 2
-
-[node name="Archivo17" parent="Cuerpo/ScrollContainer/GridContainer" instance=ExtResource("2_7iwt6")]
-layout_mode = 2
-
-[node name="Archivo18" parent="Cuerpo/ScrollContainer/GridContainer" instance=ExtResource("2_7iwt6")]
-layout_mode = 2
-
-[node name="Archivo19" parent="Cuerpo/ScrollContainer/GridContainer" instance=ExtResource("2_7iwt6")]
-layout_mode = 2
-
-[node name="Archivo20" parent="Cuerpo/ScrollContainer/GridContainer" instance=ExtResource("2_7iwt6")]
-layout_mode = 2
-
-[node name="Archivo21" parent="Cuerpo/ScrollContainer/GridContainer" instance=ExtResource("2_7iwt6")]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="Cuerpo"]
@@ -132,5 +81,6 @@ offset_bottom = 23.0
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="timeout" from="Timer" to="Cuerpo/ScrollContainer/GridContainer" method="_on_timer_timeout"]
 [connection signal="mouse_entered" from="BarraTitulo" to="." method="_on_barra_titulo_mouse_entered"]
 [connection signal="mouse_exited" from="BarraTitulo" to="." method="_on_barra_titulo_mouse_exited"]

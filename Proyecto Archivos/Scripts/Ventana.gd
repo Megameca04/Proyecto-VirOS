@@ -11,12 +11,15 @@ var on_top_bar := false
 var on_window := false
 var offset := Vector2.ZERO
 
-func _physics_process(delta):
+
+func _physics_process(delta): 
+	var timer = $Timer.get_time_left()
 	$Cuerpo/Label.text =(
 		"Click: " + str(current_click) +
 		"\nOn_TB: " + str(on_top_bar) +
 		"\nOn_window: " +str(on_window)+
-		"\nZ_index: " + str(z_index)
+		"\nZ_index: " + str(z_index)+
+		"\nTimer: " + str(timer)
 		)
 	
 	if Input.is_action_just_pressed("l_click"):
