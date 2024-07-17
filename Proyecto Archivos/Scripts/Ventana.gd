@@ -1,6 +1,7 @@
 extends Control
 
-signal focussed(window : Object, file : Object, button : int)
+signal file_clicked(window : Object, file : Object, button : int)
+signal show_paste_menu(coord  : Vector2)
 
 enum ClickStates {
 	NONE,
@@ -14,7 +15,8 @@ var on_window := false
 var offset := Vector2.ZERO
 
 func _ready():
-	connect("focussed",Callable(get_parent(),"clicked_file"))
+	connect("file_clicked",Callable(get_parent(),"clicked_file"))
+	connect("show_paste_menu",Callable(get_parent(),"show_paste_menu"))
 	print("focussed conectada")
 	for i in randi_range(1,5):
 		var new_file = preload("res://Escenas/Archivo.tscn").instantiate()
@@ -23,23 +25,19 @@ func _ready():
 		
 		new_file.connect("clicked", Callable(self,"get_clicked_file"))
 
-func _physics_process(delta): 
-	$Cuerpo/Label.text =(
-		"Click: " + str(current_click) +
-		"\nOn_TB: " + str(on_top_bar) +
-		"\nOn_window: " +str(on_window)+
-		"\nZ_index: " + str(z_index)
-		)
-	
-	if Input.is_action_just_pressed("l_click"):
-		if on_top_bar or on_window:
-			move_to_front()
+func _physics_process(_delta): 
 	
 	if on_top_bar:
 		if current_click == ClickStates.PRESSED:
 			global_position = get_global_mouse_position() - offset
 		else:
 			offset = get_local_mouse_position()
+
+func add_file( file: Object):
+	file.reparent($Cuerpo/ScrollContainer/GridContainer)
+
+func remove_file(file : Object):
+	call_deferred("remove_child",file)
 
 func _input(event):
 	if event.is_action_pressed("l_click"):
@@ -48,7 +46,7 @@ func _input(event):
 		current_click = ClickStates.NONE
 
 func get_clicked_file(file : Object, button : int):
-	focussed.emit(self, file, button)
+	file_clicked.emit(self, file, button)
 
 func _on_barra_titulo_mouse_entered():
 	on_top_bar = true
@@ -62,3 +60,7 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
 	on_window = false
+
+func _on_gui_input(event):
+	if on_window and event.is_action_pressed("r_click"):
+		show_paste_menu.emit(self, get_global_mouse_position())
