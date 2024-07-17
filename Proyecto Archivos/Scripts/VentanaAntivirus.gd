@@ -10,6 +10,7 @@ enum ClickStates {
 }
 
 var current_click = ClickStates.NONE
+var cycles = -1
 
 var on_top_bar := false
 var on_window := false
@@ -18,17 +19,18 @@ var emmited_hide := false
 
 var offset := Vector2.ZERO
 
+@onready var Grid := $Cuerpo/VBoxContainer/ScrollContainer/GridContainer
+
 func _ready():
 	connect("file_clicked",Callable(get_parent(),"clicked_file"))
 	connect("show_clipboard",Callable(get_parent(),"show_clipboard"))
 	connect("hide_clipboard",Callable(get_parent(),"hide_clipboard"))
 	
-	for i in randi_range(1,5):
-		var new_file = preload("res://Escenas/Archivo.tscn").instantiate()
-		
-		$Cuerpo/ScrollContainer/GridContainer.add_child(new_file)
-		
-		new_file.connect("clicked", Callable(self,"get_clicked_file"))
+	add_new_cleaner()
+	
+	for i in Grid.get_children():
+		if i.is_in_group("Archivo"):
+			i.connect("clicked", Callable(self,"get_clicked_file"))
 
 func _physics_process(_delta): 
 	
@@ -43,11 +45,11 @@ func _physics_process(_delta):
 			offset = get_local_mouse_position()
 			emmited_hide = false
 
-func add_file( file: Object):
-	file.reparent($Cuerpo/ScrollContainer/GridContainer)
-
-func remove_file(file : Object):
-	call_deferred("remove_child",file)
+func _add_file(file: Object , copy : bool):
+	if copy:
+		Grid.add_child(file)
+	else:
+		file.reparent(Grid)
 
 func _input(event):
 	if event.is_action_pressed("l_click"):
@@ -57,6 +59,15 @@ func _input(event):
 
 func get_clicked_file(file : Object, button : int):
 	file_clicked.emit(self, file, button)
+
+func add_new_cleaner():
+	if Grid.get_child_count() < 5:
+		for i in range(floor(1 + cycles/3)):
+			if Grid.get_child_count() < 5:
+				Grid.add_child(Singletons.CLEANER.instantiate())
+			else:
+				break
+		cycles += 1
 
 func _on_barra_titulo_mouse_entered():
 	on_top_bar = true

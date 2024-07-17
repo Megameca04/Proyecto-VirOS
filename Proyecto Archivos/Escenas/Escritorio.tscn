@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dssj3r76nyg07"]
+[gd_scene load_steps=8 format=3 uid="uid://dssj3r76nyg07"]
 
 [ext_resource type="Script" path="res://Scripts/Escritorio.gd" id="1_6hoyn"]
 [ext_resource type="Texture2D" uid="uid://bwgc11jg5r8lh" path="res://Sprites/fondoor.png" id="1_gagr4"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dk2wj8bmajkf0" path="res://Escenas/Ventana.tscn" id="2_ifw5m"]
 [ext_resource type="PackedScene" uid="uid://bfq1af5py0rqe" path="res://Escenas/Portapapeles.tscn" id="4_l2j8n"]
 [ext_resource type="PackedScene" uid="uid://bl6qxp1wyfawo" path="res://Escenas/AdministradorEspacio.tscn" id="5_al013"]
+[ext_resource type="PackedScene" uid="uid://du4pk8auc6lqs" path="res://Escenas/VentanaAntivirus.tscn" id="6_x5b5y"]
 
 [node name="Escritorio" type="Control" groups=["Escritorio"]]
 texture_filter = 1
@@ -47,9 +48,14 @@ offset_top = 260.0
 offset_right = 1064.0
 offset_bottom = 580.0
 
-[node name="AdministradorDisco" parent="." instance=ExtResource("5_al013")]
-layout_mode = 1
-offset_left = 391.0
-offset_top = 66.0
-offset_right = -361.0
-offset_bottom = -261.0
+[node name="Ventana3" parent="." instance=ExtResource("5_al013")]
+offset_left = 440.0
+offset_top = 280.0
+offset_right = 1060.0
+offset_bottom = 600.0
+
+[node name="Antivirus" parent="." instance=ExtResource("6_x5b5y")]
+offset_left = 350.0
+offset_top = 148.0
+offset_right = 734.0
+offset_bottom = 308.0

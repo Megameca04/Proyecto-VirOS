@@ -7,29 +7,32 @@ var copy_at_move = false
 
 @onready var initial_pos := get_global_position()
 
-@onready var Copiar = $HBoxContainer/MarginContainer/BotonCopiar
-@onready var Cortar = $HBoxContainer/MarginContainer2/BotonCortar
-@onready var Pegar = $HBoxContainer/MarginContainer3/BotonPegar
-@onready var Borrar = $HBoxContainer/MarginContainer4/BotonBorrar
+@onready var Copiar = $HBoxContainer/Copiar
+@onready var Cortar = $HBoxContainer/Cortar
+@onready var Pegar = $HBoxContainer/Pegar
+@onready var Borrar = $HBoxContainer/Borrar
 
 func _ready():
 	connect("select_files",Callable(get_parent(),"select_files"))
 	connect("move_files",Callable(get_parent(),"move_files"))
+
+func _process(delta):
+	size = $HBoxContainer.size
 
 func reset_pos():
 	global_position = initial_pos
 
 func show_at(mode : int, coords :  Vector2):
 	if mode == 0:
-		Copiar.show()
-		Cortar.show()
-		Borrar.show()
-		Pegar.hide()
+		Copiar.visible = true
+		Cortar.visible = true
+		Borrar.visible = true
+		Pegar.visible = false
 	elif mode == 1:
-		Copiar.hide()
-		Cortar.hide()
-		Borrar.hide()
-		Pegar.show()
+		Copiar.visible = false
+		Cortar.visible = false
+		Borrar.visible = false
+		Pegar.visible = true
 	
 	global_position = coords
 	move_to_front()

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://35sp7vgsy047"
-path="res://.godot/imported/ventanaArriba.png-762b92472792ba57bf02d8a3b64cc304.ctex"
+uid="uid://e23yu1aol5si"
+path="res://.godot/imported/ventanaVirus.png-25b146ca47333740113af35fb5de6b3f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/ventanaArriba.png"
-dest_files=["res://.godot/imported/ventanaArriba.png-762b92472792ba57bf02d8a3b64cc304.ctex"]
+source_file="res://Sprites/ventanaVirus.png"
+dest_files=["res://.godot/imported/ventanaVirus.png-25b146ca47333740113af35fb5de6b3f.ctex"]
 
 [params]
 

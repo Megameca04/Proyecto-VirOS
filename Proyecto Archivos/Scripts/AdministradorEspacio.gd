@@ -2,6 +2,7 @@ extends Control
 
 signal file_clicked(window : Object, file : Object, button : int)
 signal show_paste_menu(coord  : Vector2)
+signal hide_clipboard()
 
 enum ClickStates {
 	NONE,
@@ -12,6 +13,9 @@ var current_click = ClickStates.NONE
 
 var on_top_bar := false
 var on_window := false
+
+var emmited_hide := false
+
 var offset := Vector2.ZERO
 
 var grupo_archivos = []  # Almacena los nodos en el grupo "Archivo"
@@ -22,9 +26,8 @@ var cantidad_virus = 0
 
 var grupo_antivirus = []
 var cantidad_antivirus = 0
-# Llamado cuando el nodo entra en el árbol de escena por primera vez
+
 func _ready():
-	# Supongamos que quieres contar los nodos en el grupo llamado "Archivo"
 	grupo_archivos = get_tree().get_nodes_in_group("Archivo")
 	cantidad_de_archivos = grupo_archivos.size()
 	$Cuerpo/VBoxContainer/MarginContainer/ProgressBar.set_value(cantidad_de_archivos)
@@ -47,14 +50,13 @@ func _physics_process(_delta):
 	if on_top_bar:
 		if current_click == ClickStates.PRESSED:
 			global_position = get_global_mouse_position() - offset
+			move_to_front()
+			if !emmited_hide:
+				hide_clipboard.emit()
+				emmited_hide = true
 		else:
 			offset = get_local_mouse_position()
-
-func add_file( file: Object):
-	file.reparent($Cuerpo/ScrollContainer/GridContainer)
-
-func remove_file(file : Object):
-	call_deferred("remove_child",file)
+			emmited_hide = false
 
 func _input(event):
 	if event.is_action_pressed("l_click"):
@@ -81,8 +83,6 @@ func _on_mouse_exited():
 func _on_gui_input(event):
 	if on_window and event.is_action_pressed("r_click"):
 		show_paste_menu.emit(self, get_global_mouse_position())
-
-
 
 func _on_timer_timeout():
 	grupo_archivos = get_tree().get_nodes_in_group("Archivo")

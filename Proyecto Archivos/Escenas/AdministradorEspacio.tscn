@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bl6qxp1wyfawo"]
 
 [ext_resource type="Script" path="res://Scripts/AdministradorEspacio.gd" id="1_wssec"]
-[ext_resource type="Texture2D" uid="uid://dwr8a6aujyy2" path="res://Sprites/ventanaArriba.png" id="2_8sm7g"]
+[ext_resource type="Texture2D" uid="uid://35sp7vgsy047" path="res://Sprites/ventanaArriba.png" id="2_8sm7g"]
 [ext_resource type="FontFile" uid="uid://dfg1k6mc5n5vw" path="res://Fuentes/Pixellari.ttf" id="3_xdvxi"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_eey0o"]
@@ -33,12 +33,16 @@ custom_minimum_size = Vector2(0, 20)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 20.0
-grow_horizontal = 2
+anchor_bottom = 0.062
+offset_right = -160.0
+offset_bottom = 0.16
+mouse_filter = 0
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 2
 texture = ExtResource("2_8sm7g")
-region_rect = Rect2(-211, 0, 341, 16)
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 52
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
