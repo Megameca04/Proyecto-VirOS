@@ -17,34 +17,39 @@ font_color = Color(0.490196, 0.490196, 0.490196, 1)
 
 [node name="AdministradorDisco" type="Control" groups=["Ventana"]]
 texture_filter = 1
-custom_minimum_size = Vector2(620, 200)
+custom_minimum_size = Vector2(400, 200)
 layout_mode = 3
-anchors_preset = 0
-offset_right = 460.0
-offset_bottom = 320.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -752.0
+offset_bottom = -327.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_wssec")
 
 [node name="BarraTitulo" type="NinePatchRect" parent="."]
-custom_minimum_size = Vector2(620, 20)
-layout_mode = 2
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 1
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 0.062
-offset_right = -160.0
-offset_bottom = 0.16
+offset_bottom = 20.0
+grow_horizontal = 2
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 2
 texture = ExtResource("2_8sm7g")
-patch_margin_right = 53
+region_rect = Rect2(-211, 0, 341, 16)
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
 [node name="Cuerpo" type="Panel" parent="."]
-custom_minimum_size = Vector2(620, 300)
 layout_mode = 2
 offset_top = 20.0
-offset_right = 460.0
+offset_right = 400.0
 offset_bottom = 320.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Cuerpo"]
@@ -58,14 +63,14 @@ grow_vertical = 2
 [node name="MarginContainer" type="MarginContainer" parent="Cuerpo/VBoxContainer"]
 material = SubResource("CanvasItemMaterial_eey0o")
 use_parent_material = true
-custom_minimum_size = Vector2(600, 100)
+custom_minimum_size = Vector2(300, 100)
 layout_direction = 1
 layout_mode = 2
-size_flags_horizontal = 4
 
 [node name="ProgressBar" type="ProgressBar" parent="Cuerpo/VBoxContainer/MarginContainer"]
-custom_minimum_size = Vector2(60, 80)
+custom_minimum_size = Vector2(380, 60)
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 4
 min_value = 1.0
 max_value = 500.0
