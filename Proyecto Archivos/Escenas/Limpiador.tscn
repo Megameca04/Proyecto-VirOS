@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://be81yo730xtn5"]
+[gd_scene load_steps=7 format=3 uid="uid://xorqmmp6hxtq"]
 
-[ext_resource type="Script" path="res://Scripts/Archivo.gd" id="1_dhyxv"]
-[ext_resource type="Texture2D" uid="uid://8dio6s3qg2i2" path="res://Sprites/archivo.png" id="1_v4fds"]
+[ext_resource type="Script" path="res://Scripts/Limpiador.gd" id="1_x5nsr"]
+[ext_resource type="Texture2D" uid="uid://qytqa461nb3g" path="res://Sprites/pill.png" id="2_fu56m"]
 
 [sub_resource type="Theme" id="Theme_dlcfb"]
 MarginContainer/constants/margin_bottom = 4
@@ -26,7 +26,7 @@ border_color = Color(0.988235, 1, 0, 1)
 [sub_resource type="Theme" id="Theme_gx217"]
 Panel/styles/panel = SubResource("StyleBoxFlat_fbs3w")
 
-[node name="Archivo" type="Container" groups=["Archivo"]]
+[node name="Limpiador" type="Container" groups=["Archivo", "Limpiador"]]
 texture_filter = 1
 custom_minimum_size = Vector2(72, 72)
 anchors_preset = 8
@@ -43,7 +43,7 @@ grow_vertical = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 2
 theme = SubResource("Theme_dlcfb")
-script = ExtResource("1_dhyxv")
+script = ExtResource("1_x5nsr")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(72, 72)
@@ -52,7 +52,7 @@ theme = SubResource("Theme_ck5en")
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
 layout_mode = 2
-texture = ExtResource("1_v4fds")
+texture = ExtResource("2_fu56m")
 stretch_mode = 4
 
 [node name="Panel" type="Panel" parent="."]
@@ -61,4 +61,9 @@ layout_mode = 2
 mouse_filter = 2
 theme = SubResource("Theme_gx217")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

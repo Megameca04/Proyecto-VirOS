@@ -1,3 +1,4 @@
+class_name Ventana
 extends Control
 
 var selected_pool = []
@@ -42,18 +43,25 @@ func manage_click(file : Object, button : int):
 			i.is_selected = true
 
 func show_paste_menu(window,coord):
+	window.move_to_front()
 	window_with_clipboard = window
 	Clipboard.show_at(1,coord)
+	
 
 func select_files():
 	for i in selected_pool:
 		files_in_clipboard.append(i)
-	selected_pool.clear()
 
 func move_files(copy : bool):
 	if copy == true:
-		pass
+		for i in files_in_clipboard:
+			if i.is_in_group("Archivo"):
+				if !i.is_in_group("Limpiador"):
+					window_with_clipboard.add_file(Singletons.FILE.instantiate(),true)
+				else:
+					window_with_clipboard.add_file(Singletons.CLEANER.instantiate(),true)
 	else:
 		for i in files_in_clipboard:
-			window_with_clipboard.add_file(i)
+			window_with_clipboard.add_file(i,false)
 		files_in_clipboard.clear()
+		clear_selection()

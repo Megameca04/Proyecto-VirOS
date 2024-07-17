@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7b7xqkrcwdg3"]
-
-[ext_resource type="Texture2D" uid="uid://bwgc11jg5r8lh" path="res://Sprites/fondoor.png" id="1_hesbh"]
-
-[node name="Fondoor" type="Sprite2D"]
-position = Vector2(575, 325)
-scale = Vector2(0.71875, 0.8125)
-texture = ExtResource("1_hesbh")
