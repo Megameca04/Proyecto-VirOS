@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://xorqmmp6hxtq"]
+[gd_scene load_steps=7 format=3 uid="uid://cb144x4ygpj4t"]
 
 [ext_resource type="Script" path="res://Scripts/Limpiador.gd" id="1_x5nsr"]
 [ext_resource type="Texture2D" uid="uid://qytqa461nb3g" path="res://Sprites/pill.png" id="2_fu56m"]

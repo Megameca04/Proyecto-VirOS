@@ -4,10 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://8dio6s3qg2i2" path="res://Sprites/archivo.png" id="1_v4fds"]
 
 [sub_resource type="Theme" id="Theme_dlcfb"]
-MarginContainer/constants/margin_bottom = 4
-MarginContainer/constants/margin_left = 4
-MarginContainer/constants/margin_right = 4
-MarginContainer/constants/margin_top = 4
 
 [sub_resource type="Theme" id="Theme_ck5en"]
 MarginContainer/constants/margin_bottom = 4
@@ -26,7 +22,7 @@ border_color = Color(0.988235, 1, 0, 1)
 [sub_resource type="Theme" id="Theme_gx217"]
 Panel/styles/panel = SubResource("StyleBoxFlat_fbs3w")
 
-[node name="Archivo" type="Container" groups=["Archivo", "Neutro"]]
+[node name="Archivo" type="Container" groups=["Archivo"]]
 texture_filter = 1
 custom_minimum_size = Vector2(72, 72)
 anchors_preset = 8

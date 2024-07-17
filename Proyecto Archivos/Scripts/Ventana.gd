@@ -14,36 +14,30 @@ var on_top_bar := false
 var on_window := false
 var offset := Vector2.ZERO
 
-@onready var Grid := $Cuerpo/ScrollContainer/GridContainer
-
 func _ready():
 	connect("file_clicked",Callable(get_parent(),"clicked_file"))
 	connect("show_paste_menu",Callable(get_parent(),"show_paste_menu"))
-	
+	print("focussed conectada")
 	for i in randi_range(1,5):
 		var new_file = preload("res://Escenas/Archivo.tscn").instantiate()
 		
-		Grid.add_child(new_file)
-	
-	for i in Grid.get_children():
-		if i.is_in_group("Archivo"):
-			i.connect("clicked", Callable(self,"get_clicked_file"))
+		$Cuerpo/ScrollContainer/GridContainer.add_child(new_file)
 		
+		new_file.connect("clicked", Callable(self,"get_clicked_file"))
 
 func _physics_process(_delta): 
 	
 	if on_top_bar:
 		if current_click == ClickStates.PRESSED:
 			global_position = get_global_mouse_position() - offset
-			move_to_front()
 		else:
 			offset = get_local_mouse_position()
 
-func add_file(file: Object , copy : bool):
-	if copy:
-		Grid.add_child(file)
-	else:
-		file.reparent(Grid)
+func add_file( file: Object):
+	file.reparent($Cuerpo/ScrollContainer/GridContainer)
+
+func remove_file(file : Object):
+	call_deferred("remove_child",file)
 
 func _input(event):
 	if event.is_action_pressed("l_click"):

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dssj3r76nyg07"]
+[gd_scene load_steps=7 format=3 uid="uid://dssj3r76nyg07"]
 
 [ext_resource type="Script" path="res://Scripts/Escritorio.gd" id="1_6hoyn"]
 [ext_resource type="Texture2D" uid="uid://bwgc11jg5r8lh" path="res://Sprites/fondoor.png" id="1_gagr4"]
 [ext_resource type="Theme" uid="uid://bonfvega22e4i" path="res://Temas/Configuración ventanas.tres" id="1_qaoaq"]
 [ext_resource type="PackedScene" uid="uid://dk2wj8bmajkf0" path="res://Escenas/Ventana.tscn" id="2_ifw5m"]
 [ext_resource type="PackedScene" uid="uid://bfq1af5py0rqe" path="res://Escenas/Portapapeles.tscn" id="4_l2j8n"]
+[ext_resource type="PackedScene" uid="uid://bl6qxp1wyfawo" path="res://Escenas/AdministradorEspacio.tscn" id="5_al013"]
 
 [node name="Escritorio" type="Control" groups=["Escritorio"]]
 texture_filter = 1
@@ -41,7 +42,13 @@ offset_right = 780.0
 offset_bottom = 450.0
 
 [node name="Ventana2" parent="." instance=ExtResource("2_ifw5m")]
-offset_left = 440.0
-offset_top = 280.0
-offset_right = 1060.0
-offset_bottom = 600.0
+offset_left = 444.0
+offset_top = 260.0
+offset_right = 1064.0
+offset_bottom = 580.0
+
+[node name="Ventana3" parent="." instance=ExtResource("5_al013")]
+offset_left = 474.0
+offset_top = 33.0
+offset_right = 1094.0
+offset_bottom = 353.0
