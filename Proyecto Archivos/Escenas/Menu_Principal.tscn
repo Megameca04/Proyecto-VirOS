@@ -1,14 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://brde1nnrstqpi"]
+[gd_scene load_steps=11 format=3 uid="uid://brde1nnrstqpi"]
 
 [ext_resource type="Texture2D" uid="uid://bwgc11jg5r8lh" path="res://Sprites/fondoor.png" id="1_wd8ma"]
-[ext_resource type="Texture2D" uid="uid://cn2lj64al1ejw" path="res://Sprites/RetroWindowsGUI/Windows_Button.png" id="2_q6nok"]
-[ext_resource type="Texture2D" uid="uid://ck3vur32sydsm" path="res://Sprites/RetroWindowsGUI/Windows_Button_Pressed.png" id="3_bsr2n"]
-[ext_resource type="Texture2D" uid="uid://d3p1wygg63l3n" path="res://Sprites/RetroWindowsGUI/Windows_Button_Focus.png" id="4_4iuea"]
-[ext_resource type="Texture2D" uid="uid://diwcvqqu13yd1" path="res://Sprites/RetroWindowsGUI/Windows_Button_Inactive.png" id="5_2ksn7"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_7t8ty"]
-font_size = 5
-font_color = Color(0.0588235, 0.0588235, 0.0588235, 1)
+[ext_resource type="Texture2D" uid="uid://bo3n8k2iusxxs" path="res://Sprites/start_buttonNormal.png" id="2_agllw"]
+[ext_resource type="Texture2D" uid="uid://v6iiktjosr84" path="res://Sprites/start_buttonOver.png" id="3_6iilv"]
+[ext_resource type="Texture2D" uid="uid://bcfxh3hp121yb" path="res://Sprites/start_buttonPressedl.png" id="4_3y3i4"]
+[ext_resource type="Texture2D" uid="uid://co72ophcvfi6u" path="res://Sprites/TutorialNormal.png" id="5_0xnqv"]
+[ext_resource type="Texture2D" uid="uid://bsokd8bpqbid5" path="res://Sprites/TutorialOver.png" id="6_7lqsd"]
+[ext_resource type="Texture2D" uid="uid://pqttwrcwhqju" path="res://Sprites/TutorialPressedl.png" id="7_7d102"]
+[ext_resource type="Texture2D" uid="uid://dr25keu2sv0ui" path="res://Sprites/CreditosNormal.png" id="8_hm1wo"]
+[ext_resource type="Texture2D" uid="uid://bt58ugrspgcdx" path="res://Sprites/CreditosOver.png" id="9_ps2jo"]
+[ext_resource type="Texture2D" uid="uid://b2ku28y0kfm0b" path="res://Sprites/CreditosPressedl.png" id="10_qx38b"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -31,60 +32,51 @@ expand_mode = 5
 stretch_mode = 6
 metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 58.0
-offset_bottom = 130.0
-scale = Vector2(20, 5)
-alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-alignment = 1
-
-[node name="TextureButton" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
-texture_filter = 5
-texture_repeat = 2
-layout_mode = 2
-texture_normal = ExtResource("2_q6nok")
-texture_pressed = ExtResource("3_bsr2n")
-texture_hover = ExtResource("4_4iuea")
-texture_disabled = ExtResource("5_2ksn7")
-stretch_mode = 0
-
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/TextureButton"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(60, 0)
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -11.5
-offset_bottom = 11.5
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "INICIO
-"
-label_settings = SubResource("LabelSettings_7t8ty")
-horizontal_alignment = 1
-vertical_alignment = 1
+alignment = 1
 
-[node name="TextureButton2" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
+[node name="CenterContainer3" type="CenterContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/CenterContainer3"]
 texture_filter = 5
 texture_repeat = 2
+custom_minimum_size = Vector2(300, 150)
 layout_mode = 2
-texture_normal = ExtResource("2_q6nok")
-texture_pressed = ExtResource("3_bsr2n")
-texture_hover = ExtResource("4_4iuea")
-texture_disabled = ExtResource("5_2ksn7")
-stretch_mode = 0
+texture_normal = ExtResource("2_agllw")
+texture_pressed = ExtResource("3_6iilv")
+texture_hover = ExtResource("4_3y3i4")
+stretch_mode = 5
 
-[node name="TextureButton3" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
+[node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/CenterContainer2"]
 texture_filter = 5
 texture_repeat = 2
+custom_minimum_size = Vector2(300, 150)
 layout_mode = 2
-texture_normal = ExtResource("2_q6nok")
-texture_pressed = ExtResource("3_bsr2n")
-texture_hover = ExtResource("4_4iuea")
-texture_disabled = ExtResource("5_2ksn7")
-stretch_mode = 0
+texture_normal = ExtResource("5_0xnqv")
+texture_pressed = ExtResource("6_7lqsd")
+texture_hover = ExtResource("7_7d102")
+stretch_mode = 5
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/CenterContainer"]
+texture_filter = 5
+texture_repeat = 2
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 2
+texture_normal = ExtResource("8_hm1wo")
+texture_pressed = ExtResource("9_ps2jo")
+texture_hover = ExtResource("10_qx38b")
+stretch_mode = 5
