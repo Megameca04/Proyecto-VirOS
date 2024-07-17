@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dk2wj8bmajkf0"]
 
 [ext_resource type="Script" path="res://Scripts/Ventana.gd" id="1_tgup3"]
-[ext_resource type="Texture2D" uid="uid://dwr8a6aujyy2" path="res://Sprites/ventanaArriba.png" id="2_i54jj"]
-[ext_resource type="PackedScene" uid="uid://d2yiplwctcac8" path="res://Escenas/virus.tscn" id="3_gnsv1"]
+[ext_resource type="Texture2D" uid="uid://35sp7vgsy047" path="res://Sprites/ventanaArriba.png" id="2_i54jj"]
+[ext_resource type="Texture2D" uid="uid://c4lo25y8ltr37" path="res://Sprites/9x9.png" id="3_xnedt"]
 
 [node name="Ventana" type="Control" groups=["Ventana"]]
 texture_filter = 1
@@ -20,18 +20,28 @@ anchor_right = 1.0
 anchor_bottom = 0.062
 offset_right = -160.0
 offset_bottom = 0.16
+mouse_filter = 0
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 2
 texture = ExtResource("2_i54jj")
-patch_margin_right = 53
+region_rect = Rect2(0, 0, 129, 16)
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 52
+axis_stretch_vertical = 2
 
-[node name="Cuerpo" type="Panel" parent="."]
+[node name="Cuerpo" type="NinePatchRect" parent="."]
 custom_minimum_size = Vector2(620, 300)
 layout_mode = 2
 offset_top = 20.0
 offset_right = 460.0
 offset_bottom = 320.0
 mouse_filter = 1
+texture = ExtResource("3_xnedt")
+region_rect = Rect2(0, 0, 9, 9)
+patch_margin_left = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Cuerpo"]
 custom_minimum_size = Vector2(612, 300)
@@ -49,12 +59,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
 columns = 8
-
-[node name="Virus2" parent="Cuerpo/ScrollContainer/GridContainer" instance=ExtResource("3_gnsv1")]
-layout_mode = 2
-
-[node name="Virus" parent="Cuerpo/ScrollContainer/GridContainer" instance=ExtResource("3_gnsv1")]
-layout_mode = 2
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
