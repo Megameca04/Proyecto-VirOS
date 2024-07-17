@@ -13,6 +13,7 @@ config_version=5
 config/name="Proyecto Archivos"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+config/windows_native_icon="res://Sprites/icono.ico"
 
 [autoload]
 

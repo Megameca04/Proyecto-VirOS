@@ -26,7 +26,7 @@ border_color = Color(0.988235, 1, 0, 1)
 [sub_resource type="Theme" id="Theme_gx217"]
 Panel/styles/panel = SubResource("StyleBoxFlat_fbs3w")
 
-[node name="Archivo" type="Container" groups=["Archivo"]]
+[node name="Archivo" type="Container" groups=["Archivo", "Neutro"]]
 texture_filter = 1
 custom_minimum_size = Vector2(72, 72)
 anchors_preset = 8

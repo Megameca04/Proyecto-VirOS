@@ -55,10 +55,9 @@ func select_files():
 func move_files(copy : bool):
 	if copy == true:
 		for i in files_in_clipboard:
-			if i.is_in_group("Archivo"):
-				if !i.is_in_group("Limpiador"):
+			if !i.is_in_group("Limpiador"):
 					window_with_clipboard.add_file(Singletons.FILE.instantiate(),true)
-				else:
+			else:
 					window_with_clipboard.add_file(Singletons.CLEANER.instantiate(),true)
 	else:
 		for i in files_in_clipboard:

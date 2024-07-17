@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4r3ixnj46yud"
-path="res://.godot/imported/botonBorrar (1).png-437e3bcf1bbf822b7e8e2e66e123b8c1.ctex"
+uid="uid://dwr8a6aujyy2"
+path="res://.godot/imported/ventanaArriba.png-762b92472792ba57bf02d8a3b64cc304.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://botonBorrar (1).png"
-dest_files=["res://.godot/imported/botonBorrar (1).png-437e3bcf1bbf822b7e8e2e66e123b8c1.ctex"]
+source_file="res://Sprites/ventanaArriba.png"
+dest_files=["res://.godot/imported/ventanaArriba.png-762b92472792ba57bf02d8a3b64cc304.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cept3r416vpr1"
-path="res://.godot/imported/botonBorrar2 (1).png-9bf8c1da77cc7b966ae5073ee5cdecb8.ctex"
+uid="uid://u1g6saxno5i1"
+path="res://.godot/imported/lineaabajo.png-5e19dda52cac220668674802f77658dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://botonBorrar2 (1).png"
-dest_files=["res://.godot/imported/botonBorrar2 (1).png-9bf8c1da77cc7b966ae5073ee5cdecb8.ctex"]
+source_file="res://Sprites/lineaabajo.png"
+dest_files=["res://.godot/imported/lineaabajo.png-5e19dda52cac220668674802f77658dd.ctex"]
 
 [params]
 
