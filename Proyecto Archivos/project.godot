@@ -14,6 +14,10 @@ config/name="Proyecto Archivos"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Singletons="*res://Scripts/Singletons.gd"
+
 [input]
 
 l_click={

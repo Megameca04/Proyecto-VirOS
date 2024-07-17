@@ -1,8 +1,13 @@
 extends Control
 
 var selected_pool = []
+var files_in_clipboard = []
 
 var last_foc_win = null
+
+@onready var Clipboard = $Clipboard
+
+var window_with_clipboard = null
 
 func clicked_file(window : Object, file : Object, button : int):
 	
@@ -12,6 +17,7 @@ func clicked_file(window : Object, file : Object, button : int):
 	if last_foc_win != window:
 		clear_selection()
 		last_foc_win = window
+		last_foc_win.move_to_front()
 	else:
 		manage_click(file, button)
 
@@ -23,8 +29,7 @@ func clear_selection():
 
 func manage_click(file : Object, button : int):
 	if button == 1:
-		$ManejoArchivos.global_position = get_global_mouse_position()
-		$ManejoArchivos.move_to_front()
+		Clipboard.show_at(0,get_global_mouse_position())
 		
 	if button == 0:
 		
@@ -36,5 +41,19 @@ func manage_click(file : Object, button : int):
 		for i in selected_pool:
 			i.is_selected = true
 
-func connect_file(file):
-	file.connect("clicked",Callable(self,"clicked_file"))
+func show_paste_menu(window,coord):
+	window_with_clipboard = window
+	Clipboard.show_at(1,coord)
+
+func select_files():
+	for i in selected_pool:
+		files_in_clipboard.append(i)
+	selected_pool.clear()
+
+func move_files(copy : bool):
+	if copy == true:
+		pass
+	else:
+		for i in files_in_clipboard:
+			window_with_clipboard.add_file(i)
+		files_in_clipboard.clear()

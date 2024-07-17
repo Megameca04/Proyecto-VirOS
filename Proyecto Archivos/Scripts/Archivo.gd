@@ -4,7 +4,7 @@ signal clicked(file : Object, button : int)
 
 var is_selected = false
 
-func _process(delta):
+func _process(_delta):
 	if is_selected:
 		$Panel.show()
 	else:

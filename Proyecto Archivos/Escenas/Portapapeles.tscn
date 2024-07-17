@@ -1,13 +1,13 @@
 [gd_scene load_steps=11 format=3 uid="uid://bfq1af5py0rqe"]
 
 [ext_resource type="Script" path="res://Scripts/BotonesMoverArchivos.gd" id="1_w7tn2"]
-[ext_resource type="Texture2D" path="res://Sprites/BotorCopiar.png" id="2_hhr20"]
-[ext_resource type="Texture2D" path="res://Sprites/BotorCopiar2.png" id="3_kpbcr"]
+[ext_resource type="Texture2D" uid="uid://d262roc802vji" path="res://Sprites/BotorCopiar.png" id="2_hhr20"]
+[ext_resource type="Texture2D" uid="uid://cub6v4pbdjd88" path="res://Sprites/BotorCopiar2.png" id="3_kpbcr"]
 [ext_resource type="Texture2D" uid="uid://bxmq4qml1p7sa" path="res://Sprites/botonBorrar2 (1).png" id="4_75gjd"]
-[ext_resource type="Texture2D" path="res://Sprites/botonCortar.png" id="4_f3irv"]
+[ext_resource type="Texture2D" uid="uid://dlw82w3rdjrs6" path="res://Sprites/botonCortar.png" id="4_f3irv"]
 [ext_resource type="Texture2D" uid="uid://df6qc0o83384v" path="res://Sprites/botonBorrar (1).png" id="4_l5h82"]
-[ext_resource type="Texture2D" path="res://Sprites/botonPegar.png" id="5_3t23i"]
-[ext_resource type="Texture2D" path="res://Sprites/botonPegar2.png" id="6_41vpf"]
+[ext_resource type="Texture2D" uid="uid://odlrpw3rwg2y" path="res://Sprites/botonPegar.png" id="5_3t23i"]
+[ext_resource type="Texture2D" uid="uid://vu756461ssgb" path="res://Sprites/botonPegar2.png" id="6_41vpf"]
 
 [sub_resource type="Theme" id="Theme_p3t1i"]
 MarginContainer/constants/margin_bottom = 4
@@ -21,7 +21,7 @@ MarginContainer/constants/margin_left = 4
 MarginContainer/constants/margin_right = 4
 MarginContainer/constants/margin_top = 4
 
-[node name="ManejoArchivos" type="PanelContainer"]
+[node name="Portapapeles" type="PanelContainer"]
 texture_filter = 1
 custom_minimum_size = Vector2(102, 72)
 offset_right = 40.0
@@ -34,28 +34,30 @@ layout_mode = 2
 alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
-custom_minimum_size = Vector2(72, 32)
+clip_contents = true
 layout_mode = 2
 theme = SubResource("Theme_5dt8f")
 
 [node name="BotonCopiar" type="TextureButton" parent="HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(96, 32)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture_normal = ExtResource("2_hhr20")
 texture_pressed = ExtResource("3_kpbcr")
 stretch_mode = 5
 
 [node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
-custom_minimum_size = Vector2(72, 32)
 layout_mode = 2
 
 [node name="BotonCortar" type="TextureButton" parent="HBoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(96, 32)
 layout_mode = 2
 texture_normal = ExtResource("4_f3irv")
 texture_pressed = ExtResource("3_kpbcr")
 stretch_mode = 5
 
 [node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer"]
-custom_minimum_size = Vector2(102, 40)
 layout_mode = 2
 
 [node name="BotonPegar" type="TextureButton" parent="HBoxContainer/MarginContainer3"]
@@ -65,7 +67,6 @@ texture_pressed = ExtResource("6_41vpf")
 stretch_mode = 5
 
 [node name="MarginContainer4" type="MarginContainer" parent="HBoxContainer"]
-custom_minimum_size = Vector2(102, 40)
 layout_mode = 2
 
 [node name="BotonBorrar" type="TextureButton" parent="HBoxContainer/MarginContainer4"]
@@ -73,3 +74,7 @@ layout_mode = 2
 texture_normal = ExtResource("4_l5h82")
 texture_pressed = ExtResource("4_75gjd")
 stretch_mode = 5
+
+[connection signal="pressed" from="HBoxContainer/MarginContainer/BotonCopiar" to="." method="_on_boton_copiar_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer2/BotonCortar" to="." method="_on_boton_cortar_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer3/BotonPegar" to="." method="_on_boton_pegar_pressed"]
