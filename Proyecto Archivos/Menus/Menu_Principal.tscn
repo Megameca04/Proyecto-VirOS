@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://brde1nnrstqpi"]
 
-[ext_resource type="Texture2D" uid="uid://bwgc11jg5r8lh" path="res://Sprites/fondoor.png" id="1_wd8ma"]
+[ext_resource type="Texture2D" uid="uid://rct63oxyyg7t" path="res://Sprites/fondoOficial.png" id="1_5op5h"]
 [ext_resource type="Texture2D" uid="uid://bo3n8k2iusxxs" path="res://Sprites/start_buttonNormal.png" id="2_agllw"]
 [ext_resource type="Texture2D" uid="uid://v6iiktjosr84" path="res://Sprites/start_buttonOver.png" id="3_6iilv"]
 [ext_resource type="Texture2D" uid="uid://bcfxh3hp121yb" path="res://Sprites/start_buttonPressedl.png" id="4_3y3i4"]
@@ -27,7 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_wd8ma")
+texture = ExtResource("1_5op5h")
 expand_mode = 5
 stretch_mode = 6
 metadata/_edit_use_anchors_ = true
