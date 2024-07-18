@@ -1,13 +1,13 @@
 [gd_scene load_steps=11 format=3 uid="uid://c78rtymaup20u"]
 
-[ext_resource type="Texture2D" uid="uid://rct63oxyyg7t" path="res://Sprites/fondoOficial.png" id="1_np7bq"]
+[ext_resource type="Texture2D" uid="uid://rct63oxyyg7t" path="res://Sprites/Fondos/fondoOficial.png" id="1_np7bq"]
 [ext_resource type="FontFile" uid="uid://dfg1k6mc5n5vw" path="res://Fuentes/Pixellari.ttf" id="2_3fmfb"]
-[ext_resource type="Texture2D" uid="uid://drxyqexjwvrek" path="res://Sprites/virus.png" id="3_gpetl"]
-[ext_resource type="Texture2D" uid="uid://8dio6s3qg2i2" path="res://Sprites/archivo.png" id="4_i1e5i"]
-[ext_resource type="Texture2D" uid="uid://qytqa461nb3g" path="res://Sprites/pill.png" id="5_rlnu7"]
-[ext_resource type="Theme" uid="uid://vlttyuh3ulp4" path="res://Menus/TemaBotonesMenu.tres" id="6_qwlpv"]
-[ext_resource type="Texture2D" uid="uid://bsevk1b30fo6o" path="res://Sprites/volver.png" id="7_h57gm"]
-[ext_resource type="Texture2D" uid="uid://cfmdbegwxspri" path="res://Sprites/continue.png" id="8_s1686"]
+[ext_resource type="Texture2D" uid="uid://drxyqexjwvrek" path="res://Sprites/Iconos/virus.png" id="3_gpetl"]
+[ext_resource type="Texture2D" uid="uid://8dio6s3qg2i2" path="res://Sprites/Iconos/archivo.png" id="4_i1e5i"]
+[ext_resource type="Texture2D" uid="uid://qytqa461nb3g" path="res://Sprites/Iconos/pill.png" id="5_rlnu7"]
+[ext_resource type="Theme" path="res://Menus/TemaBotonesMenu.tres" id="6_qwlpv"]
+[ext_resource type="Texture2D" uid="uid://bsevk1b30fo6o" path="res://Sprites/Iconos/volver.png" id="7_h57gm"]
+[ext_resource type="Texture2D" uid="uid://cfmdbegwxspri" path="res://Sprites/Iconos/continue.png" id="8_s1686"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cvns0"]
 font = ExtResource("2_3fmfb")

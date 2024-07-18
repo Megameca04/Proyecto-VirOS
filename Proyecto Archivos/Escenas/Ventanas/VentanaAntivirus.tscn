@@ -1,0 +1,78 @@
+[gd_scene load_steps=4 format=3 uid="uid://du4pk8auc6lqs"]
+
+[ext_resource type="Script" path="res://Scripts/Ventanas/VentanaAntivirus.gd" id="1_ssv5f"]
+[ext_resource type="Texture2D" uid="uid://e23yu1aol5si" path="res://Sprites/Barras de titulo/ventanaVirus.png" id="2_d1nea"]
+[ext_resource type="Texture2D" uid="uid://c4lo25y8ltr37" path="res://Sprites/Fondos/9x9.png" id="3_cp7kn"]
+
+[node name="Antivirus" type="Control"]
+texture_filter = 1
+custom_minimum_size = Vector2(384, 160)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 384.0
+offset_bottom = 170.0
+script = ExtResource("1_ssv5f")
+
+[node name="BarraTitulo" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(384, 20)
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 0.062
+offset_right = -146.084
+offset_bottom = 0.16
+mouse_filter = 0
+mouse_force_pass_scroll_events = false
+mouse_default_cursor_shape = 2
+texture = ExtResource("2_d1nea")
+region_rect = Rect2(0, 0, 129, 16)
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 52
+axis_stretch_vertical = 2
+
+[node name="Cuerpo" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(384, 0)
+layout_mode = 2
+anchor_top = 0.118
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.0600014
+mouse_filter = 1
+texture = ExtResource("3_cp7kn")
+region_rect = Rect2(0, 0, 9, 9)
+patch_margin_left = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Cuerpo"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Cuerpo/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[center]Clone los archivos a las carpetas donde encuentre [shake rate=20.0 level=5 connected=1][b][color=red]virus[/color][/b][/shake].[/center]"
+
+[node name="GridContainer" type="GridContainer" parent="Cuerpo/VBoxContainer"]
+custom_minimum_size = Vector2(384, 80)
+layout_direction = 1
+layout_mode = 2
+size_flags_vertical = 6
+columns = 5
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="BarraTitulo" to="." method="_on_barra_titulo_mouse_entered"]
+[connection signal="mouse_exited" from="BarraTitulo" to="." method="_on_barra_titulo_mouse_exited"]
+[connection signal="timeout" from="Timer" to="." method="add_new_cleaner"]

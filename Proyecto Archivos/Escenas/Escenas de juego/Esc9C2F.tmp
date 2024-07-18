@@ -1,0 +1,77 @@
+[gd_scene load_steps=9 format=3 uid="uid://dssj3r76nyg07"]
+
+[ext_resource type="Theme" uid="uid://bonfvega22e4i" path="res://Temas/Configuración ventanas.tres" id="1_vwhhn"]
+[ext_resource type="Script" path="res://Scripts/Escenas de juego/Escritorio.gd" id="2_5jovd"]
+[ext_resource type="Texture2D" uid="uid://rct63oxyyg7t" path="res://Sprites/Fondos/fondoOficial.png" id="3_2lj34"]
+[ext_resource type="PackedScene" uid="uid://bfq1af5py0rqe" path="res://Escenas/Elementos Ventanas/Portapapeles.tscn" id="4_lj5jy"]
+[ext_resource type="PackedScene" uid="uid://dk2wj8bmajkf0" path="res://Escenas/Ventanas/Ventana.tscn" id="5_tga0o"]
+[ext_resource type="PackedScene" uid="uid://du4pk8auc6lqs" path="res://Escenas/Ventanas/VentanaAntivirus.tscn" id="6_xuqfb"]
+[ext_resource type="Texture2D" uid="uid://u1g6saxno5i1" path="res://Sprites/Fondos/lineaabajo.png" id="7_sudfb"]
+[ext_resource type="PackedScene" uid="uid://bl6qxp1wyfawo" path="res://Escenas/Ventanas/AdministradorEspacio.tscn" id="8_1jyqq"]
+
+[node name="Escritorio" type="Control" groups=["Escritorio"]]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_vwhhn")
+script = ExtResource("2_5jovd")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_2lj34")
+expand_mode = 5
+stretch_mode = 6
+
+[node name="Clipboard" parent="." instance=ExtResource("4_lj5jy")]
+layout_mode = 0
+offset_top = -180.0
+offset_right = 104.0
+offset_bottom = -9.0
+
+[node name="Ventana" parent="." instance=ExtResource("5_tga0o")]
+offset_left = 160.0
+offset_top = 130.0
+offset_right = 780.0
+offset_bottom = 450.0
+
+[node name="Ventana2" parent="." instance=ExtResource("5_tga0o")]
+offset_left = 444.0
+offset_top = 260.0
+offset_right = 1064.0
+offset_bottom = 580.0
+
+[node name="Antivirus" parent="." instance=ExtResource("6_xuqfb")]
+offset_left = 350.0
+offset_top = 148.0
+offset_right = 734.0
+offset_bottom = 308.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+z_index = 20
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.935
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 42.1199
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("7_sudfb")
+patch_margin_left = 129
+patch_margin_right = 1
+
+[node name="AdministradorDisco" parent="." instance=ExtResource("8_1jyqq")]
+offset_left = 630.0
+offset_top = 200.0
+offset_right = 1030.0
+offset_bottom = 480.0

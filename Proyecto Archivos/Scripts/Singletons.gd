@@ -1,5 +1,5 @@
 extends Node
 
-const VIRUS = preload("res://Escenas/Virus.tscn")
-const FILE = preload("res://Escenas/Archivo.tscn")
-const CLEANER = preload("res://Escenas/Limpiador.tscn")
+const VIRUS = preload("res://Escenas/Elementos Ventanas/Virus.tscn")
+const FILE = preload("res://Escenas/Elementos Ventanas/Archivo.tscn")
+const CLEANER = preload("res://Escenas/Elementos Ventanas/Limpiador.tscn")
