@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://c78rtymaup20u"]
+[gd_scene load_steps=12 format=3 uid="uid://c78rtymaup20u"]
 
+[ext_resource type="Script" path="res://Scripts/Menus/Menu_Tutorial.gd" id="1_din2y"]
 [ext_resource type="Texture2D" uid="uid://rct63oxyyg7t" path="res://Sprites/Fondos/fondoOficial.png" id="1_np7bq"]
 [ext_resource type="FontFile" uid="uid://dfg1k6mc5n5vw" path="res://Fuentes/Pixellari.ttf" id="2_3fmfb"]
 [ext_resource type="Texture2D" uid="uid://drxyqexjwvrek" path="res://Sprites/Iconos/virus.png" id="3_gpetl"]
 [ext_resource type="Texture2D" uid="uid://8dio6s3qg2i2" path="res://Sprites/Iconos/archivo.png" id="4_i1e5i"]
 [ext_resource type="Texture2D" uid="uid://qytqa461nb3g" path="res://Sprites/Iconos/pill.png" id="5_rlnu7"]
-[ext_resource type="Theme" path="res://Menus/TemaBotonesMenu.tres" id="6_qwlpv"]
-[ext_resource type="Texture2D" uid="uid://bsevk1b30fo6o" path="res://Sprites/Iconos/volver.png" id="7_h57gm"]
+[ext_resource type="Theme" uid="uid://vlttyuh3ulp4" path="res://Menus/TemaBotonesMenu.tres" id="6_qwlpv"]
+[ext_resource type="Texture2D" uid="uid://32pn6rrhp2m" path="res://Sprites/Iconos/home.png" id="7_8t81m"]
 [ext_resource type="Texture2D" uid="uid://cfmdbegwxspri" path="res://Sprites/Iconos/continue.png" id="8_s1686"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cvns0"]
@@ -25,6 +26,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_din2y")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -106,18 +108,20 @@ label_settings = SubResource("LabelSettings_6b2kq")
 layout_mode = 2
 alignment = 1
 
-[node name="Button" type="Button" parent="VBoxContainer/HFlowContainer4"]
+[node name="Menu" type="Button" parent="VBoxContainer/HFlowContainer4"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 theme = ExtResource("6_qwlpv")
-icon = ExtResource("7_h57gm")
+icon = ExtResource("7_8t81m")
 icon_alignment = 1
 expand_icon = true
 
-[node name="Button2" type="Button" parent="VBoxContainer/HFlowContainer4"]
+[node name="Siguiente" type="Button" parent="VBoxContainer/HFlowContainer4"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 theme = ExtResource("6_qwlpv")
 icon = ExtResource("8_s1686")
 icon_alignment = 1
 expand_icon = true
+
+[connection signal="pressed" from="VBoxContainer/HFlowContainer4/Menu" to="." method="_on_menu_pressed"]

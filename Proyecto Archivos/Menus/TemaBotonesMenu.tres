@@ -1,24 +1,25 @@
 [gd_resource type="Theme" load_steps=8 format=3 uid="uid://vlttyuh3ulp4"]
 
 [ext_resource type="FontFile" uid="uid://dfg1k6mc5n5vw" path="res://Fuentes/Pixellari.ttf" id="1_atdtp"]
-[ext_resource type="Texture2D" uid="uid://i2jq2bl5ir5m" path="res://Sprites/Pressedl.png" id="2_sk4hv"]
-[ext_resource type="Texture2D" uid="uid://ba8jgaodi3577" path="res://Sprites/Normal.png" id="3_vli5m"]
-[ext_resource type="Texture2D" uid="uid://b3uxbfyqtcxmg" path="res://Sprites/Over.png" id="4_maw8k"]
+[ext_resource type="Texture2D" uid="uid://ibwdrucjl3jf" path="res://Sprites/Botones/Pressedl.png" id="2_2c1mx"]
+[ext_resource type="Texture2D" uid="uid://dkn5052bg2qi3" path="res://Sprites/Botones/Normal.png" id="3_8l0wa"]
+[ext_resource type="Texture2D" uid="uid://gyq7bp38c0e1" path="res://Sprites/Botones/Over.png" id="4_fmv3h"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xv30e"]
-texture = ExtResource("2_sk4hv")
+texture = ExtResource("2_2c1mx")
 region_rect = Rect2(0, 0, 95, 38)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_807lw"]
-texture = ExtResource("3_vli5m")
+texture = ExtResource("3_8l0wa")
 region_rect = Rect2(0, 0, 95, 38)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mjynx"]
-texture = ExtResource("4_maw8k")
+texture = ExtResource("4_fmv3h")
 region_rect = Rect2(0, 0, 95, 38)
 
 [resource]
 Button/colors/font_color = Color(0.490196, 0.490196, 0.490196, 1)
+Button/colors/icon_pressed_color = Color(0.572549, 0.572549, 0.572549, 1)
 Button/fonts/font = ExtResource("1_atdtp")
 Button/styles/hover = SubResource("StyleBoxTexture_xv30e")
 Button/styles/normal = SubResource("StyleBoxTexture_807lw")

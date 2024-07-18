@@ -13,4 +13,5 @@ func reset_game():
 	get_tree().reload_current_scene()
 
 func go_to_menu():
+	get_tree().paused = false
 	ScenesManager.change_scene_to(ScenesManager.Scenes.MAIN_MENU)
