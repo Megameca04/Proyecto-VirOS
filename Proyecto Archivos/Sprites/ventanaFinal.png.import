@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwgc11jg5r8lh"
-path="res://.godot/imported/fondoor.png-861f4eb30dcd6e2b2f17804d92184b43.ctex"
+uid="uid://cehadgcuy1xed"
+path="res://.godot/imported/ventanaFinal.png-6ed0b636f7ec78f90cf204130998ab45.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/fondoor.png"
-dest_files=["res://.godot/imported/fondoor.png-861f4eb30dcd6e2b2f17804d92184b43.ctex"]
+source_file="res://Sprites/ventanaFinal.png"
+dest_files=["res://.godot/imported/ventanaFinal.png-6ed0b636f7ec78f90cf204130998ab45.ctex"]
 
 [params]
 

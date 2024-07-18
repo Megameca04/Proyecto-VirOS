@@ -56,6 +56,7 @@ texture = ExtResource("2_fu56m")
 stretch_mode = 4
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 custom_minimum_size = Vector2(72, 72)
 layout_mode = 2
 mouse_filter = 2

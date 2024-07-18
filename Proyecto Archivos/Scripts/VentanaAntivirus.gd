@@ -19,18 +19,16 @@ var emmited_hide := false
 
 var offset := Vector2.ZERO
 
-@onready var Grid := $Cuerpo/VBoxContainer/ScrollContainer/GridContainer
+@onready var Grid := $Cuerpo/VBoxContainer/GridContainer
+
 
 func _ready():
 	connect("file_clicked",Callable(get_parent(),"clicked_file"))
 	connect("show_clipboard",Callable(get_parent(),"show_clipboard"))
 	connect("hide_clipboard",Callable(get_parent(),"hide_clipboard"))
 	
-	add_new_cleaner()
 	
-	for i in Grid.get_children():
-		if i.is_in_group("Archivo"):
-			i.connect("clicked", Callable(self,"get_clicked_file"))
+	add_new_cleaner()
 
 func _physics_process(_delta): 
 	
@@ -45,12 +43,6 @@ func _physics_process(_delta):
 			offset = get_local_mouse_position()
 			emmited_hide = false
 
-func _add_file(file: Object , copy : bool):
-	if copy:
-		Grid.add_child(file)
-	else:
-		file.reparent(Grid)
-
 func _input(event):
 	if event.is_action_pressed("l_click"):
 		current_click = ClickStates.PRESSED
@@ -62,9 +54,11 @@ func get_clicked_file(file : Object, button : int):
 
 func add_new_cleaner():
 	if Grid.get_child_count() < 5:
-		for i in range(floor(1 + cycles/3)):
+		for i in range(int(floor(1.0 + cycles/3.0))):
 			if Grid.get_child_count() < 5:
-				Grid.add_child(Singletons.CLEANER.instantiate())
+				var nc = Singletons.CLEANER.instantiate()
+				nc.connect("clicked", Callable(self,"get_clicked_file"))
+				Grid.add_child(nc)
 			else:
 				break
 		cycles += 1

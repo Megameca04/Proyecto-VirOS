@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bl6qxp1wyfawo"]
 
 [ext_resource type="Script" path="res://Scripts/AdministradorEspacio.gd" id="1_wssec"]
-[ext_resource type="Texture2D" uid="uid://35sp7vgsy047" path="res://Sprites/ventanaArriba.png" id="2_8sm7g"]
+[ext_resource type="Texture2D" uid="uid://5wgvse3duw8h" path="res://Sprites/ventanaArchivos.png" id="2_vo0jy"]
 [ext_resource type="FontFile" uid="uid://dfg1k6mc5n5vw" path="res://Fuentes/Pixellari.ttf" id="3_xdvxi"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_eey0o"]
@@ -15,38 +15,39 @@ font = ExtResource("3_xdvxi")
 font_size = 32
 font_color = Color(0.490196, 0.490196, 0.490196, 1)
 
-[node name="AdministradorDisco" type="Control" groups=["Ventana"]]
+[node name="AdministradorDisco" type="Control"]
 texture_filter = 1
 custom_minimum_size = Vector2(400, 200)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -752.0
-offset_bottom = -327.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 400.0
+offset_bottom = 280.0
 script = ExtResource("1_wssec")
 
 [node name="BarraTitulo" type="NinePatchRect" parent="."]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = -1
 anchor_right = 1.0
-grow_horizontal = 2
+anchor_bottom = 0.062
+offset_bottom = 0.0979996
+mouse_filter = 0
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 2
-texture = ExtResource("2_8sm7g")
-region_rect = Rect2(-230, 0, 360, 16)
+texture = ExtResource("2_vo0jy")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 52
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
 [node name="Cuerpo" type="Panel" parent="."]
 layout_mode = 2
-offset_top = 20.0
-offset_right = 400.0
-offset_bottom = 320.0
+anchor_top = 0.071
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.119999
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1

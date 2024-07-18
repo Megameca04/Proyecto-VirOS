@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dssj3r76nyg07"]
+[gd_scene load_steps=9 format=3 uid="uid://dssj3r76nyg07"]
 
 [ext_resource type="Script" path="res://Scripts/Escritorio.gd" id="1_6hoyn"]
 [ext_resource type="Theme" uid="uid://bonfvega22e4i" path="res://Temas/Configuración ventanas.tres" id="1_qaoaq"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://bl6qxp1wyfawo" path="res://Escenas/AdministradorEspacio.tscn" id="5_al013"]
 [ext_resource type="PackedScene" uid="uid://du4pk8auc6lqs" path="res://Escenas/VentanaAntivirus.tscn" id="6_x5b5y"]
 [ext_resource type="Texture2D" uid="uid://u1g6saxno5i1" path="res://Sprites/lineaabajo.png" id="8_p6tln"]
-[ext_resource type="PackedScene" uid="uid://dx2xkc3smv103" path="res://Escenas/VentanaFinJuego.tscn" id="9_n3unk"]
 
 [node name="Escritorio" type="Control" groups=["Escritorio"]]
 texture_filter = 1
@@ -76,9 +75,3 @@ offset_left = 630.0
 offset_top = 200.0
 offset_right = 1030.0
 offset_bottom = 480.0
-
-[node name="VenFinJuego" parent="." instance=ExtResource("9_n3unk")]
-offset_left = 470.0
-offset_top = 260.0
-offset_right = 970.0
-offset_bottom = 460.0

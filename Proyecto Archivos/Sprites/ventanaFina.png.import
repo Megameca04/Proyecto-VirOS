@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ibwdrucjl3jf"
-path="res://.godot/imported/Pressedl.png-bdc18baec00380c82bd8ffbef3af4951.ctex"
+uid="uid://csud87k8lf7nw"
+path="res://.godot/imported/ventanaFina.png-77f33f261234274bdaf03ed02e393121.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Pressedl.png"
-dest_files=["res://.godot/imported/Pressedl.png-bdc18baec00380c82bd8ffbef3af4951.ctex"]
+source_file="res://Sprites/ventanaFina.png"
+dest_files=["res://.godot/imported/ventanaFina.png-77f33f261234274bdaf03ed02e393121.ctex"]
 
 [params]
 

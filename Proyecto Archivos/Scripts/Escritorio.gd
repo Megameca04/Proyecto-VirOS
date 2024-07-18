@@ -10,7 +10,14 @@ var last_foc_win = null
 
 var window_with_clipboard = null
 
+func _ready():
+	
+	spawn_virus()
+
+
 func clicked_file(window : Object, file : Object, button : int):
+	if button == 0:
+		hide_clipboard()
 	
 	if last_foc_win == null:
 		last_foc_win = window
@@ -24,7 +31,6 @@ func clicked_file(window : Object, file : Object, button : int):
 		last_foc_win.move_to_front()
 		manage_click(file, button)
 
-
 func clear_selection():
 	for i in selected_pool:
 		i.is_selected = false
@@ -33,7 +39,7 @@ func clear_selection():
 
 func manage_click(file : Object, button : int):
 	
-	if button == 1 and selected_pool.size() > 0 or files_in_clipboard.size() > 0:
+	if button == 1 and selected_pool.size() > 0 :
 		Clipboard.show_at(0,get_global_mouse_position())
 		
 	if button == 0:
@@ -50,16 +56,14 @@ func show_clipboard(window,coord):
 	window.move_to_front()
 	window_with_clipboard = window
 	Clipboard.show_at(1,coord)
-	
 
 func select_files():
+	files_in_clipboard.clear()
 	for i in selected_pool:
-		if !files_in_clipboard.has(i):
-			files_in_clipboard.append(i)
+		files_in_clipboard.append(i)
 
 func hide_clipboard():
 	Clipboard.reset_pos()
-	clear_selection()
 
 func move_files(copy : bool):
 	if copy == true:
@@ -75,3 +79,11 @@ func move_files(copy : bool):
 		files_in_clipboard.clear()
 		clear_selection()
 		hide_clipboard()
+
+func spawn_virus():
+	var infected_first_window = false
+	for i in get_children():
+		if i.is_in_group("Ventana"):
+			if randi_range(1,3) == 1 or !infected_first_window:
+				i.add_file(Singletons.VIRUS.instantiate(),true)
+				infected_first_window = true

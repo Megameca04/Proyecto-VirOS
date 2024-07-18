@@ -18,6 +18,8 @@ var emmited_hide := false
 
 var offset := Vector2.ZERO
 
+@onready var Grid := $Cuerpo/ScrollContainer/GridContainer
+
 func _ready():
 	connect("file_clicked",Callable(get_parent(),"clicked_file"))
 	connect("show_clipboard",Callable(get_parent(),"show_clipboard"))
@@ -26,7 +28,7 @@ func _ready():
 	for i in randi_range(1,5):
 		var new_file = preload("res://Escenas/Archivo.tscn").instantiate()
 		
-		$Cuerpo/ScrollContainer/GridContainer.add_child(new_file)
+		Grid.add_child(new_file)
 		
 		new_file.connect("clicked", Callable(self,"get_clicked_file"))
 
@@ -43,8 +45,13 @@ func _physics_process(_delta):
 			offset = get_local_mouse_position()
 			emmited_hide = false
 
-func add_file( file: Object):
-	file.reparent($Cuerpo/ScrollContainer/GridContainer)
+func add_file(file: Object , copy : bool):
+	if copy:
+		Grid.add_child(file)
+		if !file.is_in_group("Virus"):
+			file.connect("clicked", Callable(self,"get_clicked_file"))
+	else:
+		file.reparent(Grid)
 
 func remove_file(file : Object):
 	call_deferred("remove_child",file)

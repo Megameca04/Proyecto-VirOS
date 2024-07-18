@@ -16,7 +16,7 @@ func _ready():
 	connect("select_files",Callable(get_parent(),"select_files"))
 	connect("move_files",Callable(get_parent(),"move_files"))
 
-func _process(delta):
+func _process(_delta):
 	size = $HBoxContainer.size
 
 func reset_pos():
