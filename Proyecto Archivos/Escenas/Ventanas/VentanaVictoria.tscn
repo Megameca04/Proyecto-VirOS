@@ -1,0 +1,149 @@
+[gd_scene load_steps=8 format=3 uid="uid://by77ic0hoxyx1"]
+
+[ext_resource type="Texture2D" uid="uid://e23yu1aol5si" path="res://Sprites/Barras de titulo/ventanaVirus.png" id="2_oblfe"]
+[ext_resource type="Script" path="res://Scripts/Ventanas/VentanaFinJuego.gd" id="2_qukq2"]
+[ext_resource type="Texture2D" uid="uid://c4lo25y8ltr37" path="res://Sprites/Fondos/9x9.png" id="3_85bat"]
+[ext_resource type="Theme" uid="uid://bonfvega22e4i" path="res://Temas/Configuración ventanas.tres" id="3_c7sg5"]
+[ext_resource type="Texture2D" uid="uid://32pn6rrhp2m" path="res://Sprites/Iconos/home.png" id="4_cywve"]
+
+[sub_resource type="Animation" id="Animation_oa6l4"]
+resource_name = "Show_text"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cuerpo/RichTextLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.79, 1.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxContainer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"hide"
+}, {
+"args": [],
+"method": &"show"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xriwr"]
+_data = {
+"Show_text": SubResource("Animation_oa6l4")
+}
+
+[node name="VentanaVictoria" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+offset_right = 380.0
+offset_bottom = 170.0
+theme = ExtResource("3_c7sg5")
+script = ExtResource("2_qukq2")
+
+[node name="Cuerpo" type="NinePatchRect" parent="."]
+layout_mode = 2
+anchor_top = 0.118
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.0600014
+mouse_filter = 1
+texture = ExtResource("3_85bat")
+region_rect = Rect2(0, 0, 9, 9)
+patch_margin_left = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Cuerpo"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.104
+anchor_top = 0.067
+anchor_right = 0.913
+anchor_bottom = 0.533
+offset_left = 0.48
+offset_top = -0.0500002
+offset_right = -6.94003
+offset_bottom = 0.0499954
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme = ExtResource("3_c7sg5")
+bbcode_enabled = true
+text = "[center]Ha vencido a todos los virus exitosamente
+[font_size=22]
+[tornado radius=10.0 freq=1.0 connected=1][rainbow freq=1 sat=1 val=1]FELICIDADES[/rainbow]"
+scroll_active = false
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="BarraTitulo" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.117647
+grow_horizontal = 2
+mouse_filter = 0
+mouse_force_pass_scroll_events = false
+mouse_default_cursor_shape = 2
+texture = ExtResource("2_oblfe")
+region_rect = Rect2(0, 0, 129, 16)
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 52
+axis_stretch_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.132
+anchor_top = 0.588
+anchor_right = 0.895
+anchor_bottom = 0.824
+offset_left = -0.16
+offset_top = 0.0400009
+offset_right = -0.100006
+offset_bottom = -0.0800171
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="MenuPrincipal" type="Button" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "Menu Principal"
+icon = ExtResource("4_cywve")
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Reiniciar" type="Button" parent="HBoxContainer/MarginContainer2"]
+layout_mode = 2
+text = "Reiniciar"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xriwr")
+}
+
+[connection signal="pressed" from="HBoxContainer/MarginContainer/MenuPrincipal" to="." method="_on_menu_principal_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer2/Reiniciar" to="." method="_on_reiniciar_pressed"]
+[connection signal="timeout" from="Timer" to="." method="add_new_cleaner"]

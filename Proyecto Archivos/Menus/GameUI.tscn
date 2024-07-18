@@ -1,0 +1,142 @@
+[gd_scene load_steps=8 format=3 uid="uid://ba1i0u1ppfcxh"]
+
+[ext_resource type="Texture2D" uid="uid://u1g6saxno5i1" path="res://Sprites/Fondos/lineaabajo.png" id="1_2ytoq"]
+[ext_resource type="Script" path="res://Scripts/Escenas de juego/GameUI.gd" id="1_plcs5"]
+[ext_resource type="PackedScene" uid="uid://dx2xkc3smv103" path="res://Escenas/Ventanas/VentanaFinJuego.tscn" id="2_6lu3r"]
+[ext_resource type="PackedScene" uid="uid://by77ic0hoxyx1" path="res://Escenas/Ventanas/VentanaVictoria.tscn" id="3_2gbvw"]
+
+[sub_resource type="Animation" id="Animation_gpxbu"]
+resource_name = "Victory"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameUI/VentanaVictoria:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(1297, -219), Vector2(386, 239)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameUI/VentanaVictoria")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"show_text"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_5wcgr"]
+resource_name = "Game_over"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameUI/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 12.5533),
+"update": 0,
+"values": [Color(0.227451, 0.227451, 0.227451, 0), Color(0.227451, 0.227451, 0.227451, 0.752941)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameUI/VenFinJuego:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(370, -224), Vector2(326, 224)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GameUI/VenFinJuego")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"show_text"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_do527"]
+_data = {
+"Game_over": SubResource("Animation_5wcgr"),
+"Victory": SubResource("Animation_gpxbu")
+}
+
+[node name="GameUI" type="CanvasLayer"]
+process_mode = 1
+script = ExtResource("1_plcs5")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+process_mode = 1
+z_index = 20
+custom_minimum_size = Vector2(0, 42)
+anchors_preset = -1
+anchor_top = 0.935
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.119995
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_2ytoq")
+patch_margin_left = 129
+patch_margin_right = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.227451, 0.227451, 0.227451, 0)
+
+[node name="VenFinJuego" parent="." instance=ExtResource("2_6lu3r")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -206.0
+offset_top = -548.0
+offset_right = 294.0
+offset_bottom = -348.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VentanaVictoria" parent="." instance=ExtResource("3_2gbvw")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 721.0
+offset_top = -543.0
+offset_right = 1101.0
+offset_bottom = -373.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_do527")
+}

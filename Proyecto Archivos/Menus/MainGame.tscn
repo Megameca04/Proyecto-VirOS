@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://xu3xhfj5o4b7"]
+
+[ext_resource type="Script" path="res://Scripts/MainGame.gd" id="1_xmkb4"]
+[ext_resource type="PackedScene" uid="uid://dssj3r76nyg07" path="res://Escenas/Escenas de juego/Escritorio.tscn" id="2_0wys2"]
+[ext_resource type="PackedScene" uid="uid://ba1i0u1ppfcxh" path="res://Menus/GameUI.tscn" id="3_i8q2p"]
+
+[node name="MainGame" type="Node"]
+process_mode = 3
+script = ExtResource("1_xmkb4")
+
+[node name="Escritorio" parent="." instance=ExtResource("2_0wys2")]
+
+[node name="GameUI" parent="." instance=ExtResource("3_i8q2p")]
+process_mode = 3

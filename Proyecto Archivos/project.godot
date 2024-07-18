@@ -18,6 +18,7 @@ config/windows_native_icon="res://Sprites/icono.ico"
 [autoload]
 
 Singletons="*res://Scripts/Singletons.gd"
+ScenesManager="*res://Scripts/ScenesManager.gd"
 
 [input]
 

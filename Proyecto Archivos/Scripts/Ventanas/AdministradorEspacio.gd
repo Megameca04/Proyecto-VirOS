@@ -3,6 +3,7 @@ extends Control
 signal file_clicked(window : Object, file : Object, button : int)
 signal show_paste_menu(coord  : Vector2)
 signal hide_clipboard()
+signal game_ends(victory : bool)
 
 enum ClickStates {
 	NONE,
@@ -20,6 +21,7 @@ var offset := Vector2.ZERO
 
 var grupo_archivos = []  # Almacena los nodos en el grupo "Archivo"
 var cantidad_de_archivos = 0
+@export var max_cantidad_archivos = 50
 
 var grupo_virus = []
 var cantidad_virus = 0
@@ -27,10 +29,12 @@ var cantidad_virus = 0
 var grupo_antivirus = []
 var cantidad_antivirus = 0
 
+@onready var progressBar =  $Cuerpo/VBoxContainer/MarginContainer/ProgressBar
+
 func _ready():
 	grupo_archivos = get_tree().get_nodes_in_group("Archivo")
 	cantidad_de_archivos = grupo_archivos.size()
-	$Cuerpo/VBoxContainer/MarginContainer/ProgressBar.set_value(cantidad_de_archivos)
+	progressBar.set_value(cantidad_de_archivos)
 	
 	grupo_virus = get_tree().get_nodes_in_group("Virus")
 	cantidad_virus = grupo_virus.size()
@@ -43,7 +47,8 @@ func _ready():
 		"\n Virus Restantes:    "+ str(cantidad_virus)+
 		"\n Limpiadores Activos:    "+ str(cantidad_antivirus)
 	)
-
+	
+	progressBar.max_value = max_cantidad_archivos 
 
 func _physics_process(_delta): 
 	
@@ -87,16 +92,23 @@ func _on_gui_input(event):
 func _on_timer_timeout():
 	grupo_archivos = get_tree().get_nodes_in_group("Archivo")
 	cantidad_de_archivos = grupo_archivos.size()
-	$Cuerpo/VBoxContainer/MarginContainer/ProgressBar.set_value(cantidad_de_archivos)
+	progressBar.set_value(cantidad_de_archivos)
 	
 	grupo_virus = get_tree().get_nodes_in_group("Virus")
 	cantidad_virus = grupo_virus.size()
 	
 	grupo_antivirus = get_tree().get_nodes_in_group("Limpiador")
 	cantidad_antivirus = grupo_antivirus.size()
+	
 	# Puedes usar esta cantidad para lo que necesites (por ejemplo, mostrarla en la interfaz o realizar otras acciones).
 	$Cuerpo/VBoxContainer/Label.set_text(
 		"\n Total Archivos:    "+ str(cantidad_de_archivos) +
 		"\n Virus Restantes:    "+ str(cantidad_virus)+
 		"\n Limpiadores Activos:    "+ str(cantidad_antivirus)
 	)
+	
+	if cantidad_de_archivos >= max_cantidad_archivos:
+		game_ends.emit(false)
+	
+	if cantidad_virus <= 0:
+		game_ends.emit(true)

@@ -1,5 +1,6 @@
-class_name Ventana
 extends Control
+
+signal game_ends(victory : bool)
 
 var selected_pool = []
 var files_in_clipboard = []
@@ -8,12 +9,15 @@ var last_foc_win = null
 
 @onready var Clipboard = $Clipboard
 
+@onready var SpaceManager = $AdministradorDisco
+
 var window_with_clipboard = null
 
-func _ready():
-	
-	spawn_virus()
 
+func _ready():
+	spawn_virus()
+	
+	SpaceManager.connect("game_ends",Callable(get_parent(),"game_ends"))
 
 func clicked_file(window : Object, file : Object, button : int):
 	if button == 0:

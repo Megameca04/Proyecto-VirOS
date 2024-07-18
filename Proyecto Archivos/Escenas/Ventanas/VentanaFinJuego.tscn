@@ -1,22 +1,63 @@
-[gd_scene load_steps=4 format=3 uid="uid://dx2xkc3smv103"]
+[gd_scene load_steps=8 format=3 uid="uid://dx2xkc3smv103"]
 
 [ext_resource type="Texture2D" uid="uid://csud87k8lf7nw" path="res://Sprites/Barras de titulo/ventanaFina.png" id="1_2habr"]
+[ext_resource type="Script" path="res://Scripts/Ventanas/VentanaFinJuego.gd" id="1_geg1r"]
+[ext_resource type="Theme" uid="uid://bonfvega22e4i" path="res://Temas/Configuración ventanas.tres" id="1_s00jl"]
 [ext_resource type="Texture2D" uid="uid://c4lo25y8ltr37" path="res://Sprites/Fondos/9x9.png" id="2_q42a4"]
 [ext_resource type="Texture2D" uid="uid://32pn6rrhp2m" path="res://Sprites/Iconos/home.png" id="3_1mjbj"]
 
+[sub_resource type="Animation" id="Animation_dtsne"]
+resource_name = "Show_text"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.85, 1.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxContainer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"hide"
+}, {
+"args": [],
+"method": &"show"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4tn45"]
+_data = {
+"Show_text": SubResource("Animation_dtsne")
+}
+
 [node name="VenFinJuego" type="Control"]
 texture_filter = 1
-custom_minimum_size = Vector2(500, 200)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 500.0
 offset_bottom = 200.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = ExtResource("1_s00jl")
+script = ExtResource("1_geg1r")
 metadata/_edit_horizontal_guides_ = [200.0]
 
 [node name="BarraTitulo" type="NinePatchRect" parent="."]
-custom_minimum_size = Vector2(380, 20)
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 0.1
@@ -57,12 +98,10 @@ offset_top = 18.6
 offset_bottom = 43.4
 size_flags_vertical = 3
 bbcode_enabled = true
-text = "[font_size=24][center]Su computadora ha sido completamente dominada por nosotros
+text = "[color=white][font_size=24][center]Su computadora ha sido completamente dominada por nosotros
 [font_size=64][wave][color=Black]HA PERDIDO[/color][/wave][/font_size][/center]"
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
-autostart = true
+visible_characters = 0
+visible_ratio = 0.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -93,9 +132,10 @@ layout_mode = 2
 layout_mode = 2
 text = "Reiniciar"
 
-[connection signal="gui_input" from="." to="." method="_on_gui_input"]
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
-[connection signal="mouse_entered" from="BarraTitulo" to="." method="_on_barra_titulo_mouse_entered"]
-[connection signal="mouse_exited" from="BarraTitulo" to="." method="_on_barra_titulo_mouse_exited"]
-[connection signal="timeout" from="Timer" to="." method="add_new_cleaner"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4tn45")
+}
+
+[connection signal="pressed" from="HBoxContainer/MarginContainer/MenuPrincipal" to="." method="_on_menu_principal_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer2/Reiniciar" to="." method="_on_reiniciar_pressed"]
