@@ -1,0 +1,158 @@
+[gd_scene load_steps=18 format=3 uid="uid://dn78bk7kcjypk"]
+
+[ext_resource type="Texture2D" uid="uid://rct63oxyyg7t" path="res://Sprites/fondoOficial.png" id="1_0humk"]
+[ext_resource type="Script" path="res://Scripts/Scroll_Creditos.gd" id="2_65fo7"]
+[ext_resource type="FontFile" uid="uid://dfg1k6mc5n5vw" path="res://Fuentes/Pixellari.ttf" id="2_f2hi1"]
+[ext_resource type="Theme" uid="uid://vlttyuh3ulp4" path="res://Menus/TemaBotonesMenu.tres" id="4_4pe1k"]
+[ext_resource type="Texture2D" uid="uid://ba8jgaodi3577" path="res://Sprites/Normal.png" id="4_6h1y8"]
+[ext_resource type="Texture2D" uid="uid://b3uxbfyqtcxmg" path="res://Sprites/Over.png" id="5_xgoep"]
+[ext_resource type="Texture2D" uid="uid://i2jq2bl5ir5m" path="res://Sprites/Pressedl.png" id="6_wctkw"]
+[ext_resource type="Texture2D" uid="uid://bsevk1b30fo6o" path="res://Sprites/volver.png" id="7_cakb4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_k1tjl"]
+font = ExtResource("2_f2hi1")
+font_size = 126
+font_color = Color(1, 0.827451, 0.101961, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3ax1l"]
+font = ExtResource("2_f2hi1")
+font_size = 32
+font_color = Color(0.980392, 0.839216, 0.678431, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gdy3h"]
+font = ExtResource("2_f2hi1")
+font_size = 32
+font_color = Color(0.470588, 0.956863, 0.945098, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_uq35o"]
+font = ExtResource("2_f2hi1")
+font_size = 32
+font_color = Color(0.580392, 0.0862745, 0.498039, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vpvcc"]
+font = ExtResource("2_f2hi1")
+font_size = 32
+font_color = Color(0.509804, 0.556863, 0.580392, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_k4vsi"]
+font = ExtResource("2_f2hi1")
+font_size = 32
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wesil"]
+texture = ExtResource("4_6h1y8")
+expand_margin_left = 6.0
+expand_margin_top = 6.0
+expand_margin_right = 6.0
+expand_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v0514"]
+texture = ExtResource("6_wctkw")
+expand_margin_left = 6.0
+expand_margin_top = 6.0
+expand_margin_right = 6.0
+expand_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sduyd"]
+texture = ExtResource("5_xgoep")
+expand_margin_left = 6.0
+expand_margin_top = 6.0
+expand_margin_right = 6.0
+expand_margin_bottom = 6.0
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_0humk")
+expand_mode = 5
+stretch_mode = 6
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+script = ExtResource("2_65fo7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "CREDITOS"
+label_settings = SubResource("LabelSettings_k1tjl")
+horizontal_alignment = 2
+
+[node name="Label6" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Equipo:
+    
+    Lv1 Fools
+ "
+label_settings = SubResource("LabelSettings_3ax1l")
+
+[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Desarrolladores:
+
+    Nestor Alejandro Morales
+    Martin Elias Cudris Aguilar
+ "
+label_settings = SubResource("LabelSettings_gdy3h")
+
+[node name="Label3" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Musica:
+
+    Daniel
+ "
+label_settings = SubResource("LabelSettings_uq35o")
+
+[node name="Label4" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Arte:
+
+    Laura
+ "
+label_settings = SubResource("LabelSettings_vpvcc")
+
+[node name="Label5" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Fuentes:
+
+	Zacchary Dempsey-Plante
+    https://ztdp.ca/
+ "
+label_settings = SubResource("LabelSettings_k4vsi")
+
+[node name="Button" type="Button" parent="ScrollContainer/VBoxContainer"]
+texture_filter = 3
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("4_4pe1k")
+theme_type_variation = &"FlatButton"
+theme_override_styles/normal = SubResource("StyleBoxTexture_wesil")
+theme_override_styles/hover = SubResource("StyleBoxTexture_v0514")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_sduyd")
+icon = ExtResource("7_cakb4")
+icon_alignment = 1
+expand_icon = true
