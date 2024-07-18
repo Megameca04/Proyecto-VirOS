@@ -1,9 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://ba1i0u1ppfcxh"]
+[gd_scene load_steps=23 format=3 uid="uid://ba1i0u1ppfcxh"]
 
 [ext_resource type="Texture2D" uid="uid://u1g6saxno5i1" path="res://Sprites/Fondos/lineaabajo.png" id="1_2ytoq"]
 [ext_resource type="Script" path="res://Scripts/Escenas de juego/GameUI.gd" id="1_plcs5"]
 [ext_resource type="PackedScene" uid="uid://dx2xkc3smv103" path="res://Escenas/Ventanas/VentanaFinJuego.tscn" id="2_6lu3r"]
 [ext_resource type="PackedScene" uid="uid://by77ic0hoxyx1" path="res://Escenas/Ventanas/VentanaVictoria.tscn" id="3_2gbvw"]
+[ext_resource type="PackedScene" uid="uid://by4b8ccajks0t" path="res://Escenas/Ventanas/VentanaPausa.tscn" id="5_x1ufb"]
+[ext_resource type="FontFile" uid="uid://dfg1k6mc5n5vw" path="res://Fuentes/Pixellari.ttf" id="6_483ly"]
+[ext_resource type="Texture2D" uid="uid://dkn5052bg2qi3" path="res://Sprites/Botones/Normal.png" id="7_yjtfq"]
+[ext_resource type="Texture2D" uid="uid://gyq7bp38c0e1" path="res://Sprites/Botones/Over.png" id="8_0iqhu"]
+[ext_resource type="Texture2D" uid="uid://ibwdrucjl3jf" path="res://Sprites/Botones/Pressedl.png" id="9_7orkv"]
 
 [sub_resource type="Animation" id="Animation_5wcgr"]
 resource_name = "Game_over"
@@ -75,30 +80,141 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_42cry"]
+resource_name = "Pause"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameUI/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.227451, 0.227451, 0.227451, 0), Color(0.227451, 0.227451, 0.227451, 0.752941)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameUI/VentanaPausa:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(1250, 270), Vector2(386, 239)]
+}
+
+[sub_resource type="Animation" id="Animation_8hjuv"]
+resource_name = "PauseHide"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameUI/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.227451, 0.227451, 0.227451, 0.752941), Color(0.227451, 0.227451, 0.227451, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameUI/VentanaPausa:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(1250, 270)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_do527"]
 _data = {
 "Game_over": SubResource("Animation_5wcgr"),
+"Pause": SubResource("Animation_42cry"),
+"PauseHide": SubResource("Animation_8hjuv"),
 "Victory": SubResource("Animation_gpxbu")
 }
+
+[sub_resource type="FontVariation" id="FontVariation_kwavf"]
+base_font = ExtResource("6_483ly")
+spacing_top = 2
+spacing_bottom = 2
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1jhop"]
+texture = ExtResource("7_yjtfq")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_klk56"]
+texture = ExtResource("8_0iqhu")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7wvgn"]
+texture = ExtResource("9_7orkv")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a5q7s"]
+bg_color = Color(0.827451, 0.827451, 0.827451, 1)
+border_width_left = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.607843, 0.678431, 0.717647, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tl24q"]
+bg_color = Color(0.580392, 0.0862745, 0.498039, 1)
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_00q58"]
+bg_color = Color(0.913725, 0.203922, 0.47451, 1)
+
+[sub_resource type="Theme" id="Theme_m7u8i"]
+default_font = ExtResource("6_483ly")
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0.203922, 0.203922, 0.203922, 0.501961)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/constants/h_separation = 2
+Button/constants/icon_max_width = 16
+Button/fonts/font = SubResource("FontVariation_kwavf")
+Button/styles/focus = SubResource("StyleBoxTexture_1jhop")
+Button/styles/hover = SubResource("StyleBoxTexture_klk56")
+Button/styles/normal = SubResource("StyleBoxTexture_1jhop")
+Button/styles/pressed = SubResource("StyleBoxTexture_7wvgn")
+Label/colors/font_color = Color(0, 0, 0, 1)
+MarginContainer/constants/margin_bottom = 4
+MarginContainer/constants/margin_left = 4
+MarginContainer/constants/margin_right = 4
+MarginContainer/constants/margin_top = 4
+Panel/styles/panel = SubResource("StyleBoxFlat_a5q7s")
+ProgressBar/fonts/font = ExtResource("6_483ly")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_tl24q")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_00q58")
+RichTextLabel/fonts/bold_font = ExtResource("6_483ly")
+RichTextLabel/fonts/bold_italics_font = ExtResource("6_483ly")
+RichTextLabel/fonts/italics_font = ExtResource("6_483ly")
+RichTextLabel/fonts/mono_font = ExtResource("6_483ly")
+RichTextLabel/fonts/normal_font = ExtResource("6_483ly")
 
 [node name="GameUI" type="CanvasLayer"]
 process_mode = 1
 script = ExtResource("1_plcs5")
-
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
-process_mode = 1
-z_index = 20
-custom_minimum_size = Vector2(0, 42)
-anchors_preset = -1
-anchor_top = 0.935
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 0.119995
-grow_horizontal = 2
-grow_vertical = 0
-texture = ExtResource("1_2ytoq")
-patch_margin_left = 129
-patch_margin_right = 1
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -135,8 +251,46 @@ offset_bottom = -373.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="VentanaPausa" parent="." instance=ExtResource("5_x1ufb")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 674.0
+offset_top = -54.0
+offset_right = 1054.0
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_do527")
 }
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+process_mode = 1
+texture_filter = 1
+custom_minimum_size = Vector2(0, 42)
+anchors_preset = -1
+anchor_top = 0.935
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.119995
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_2ytoq")
+patch_margin_left = 129
+patch_margin_right = 1
+
+[node name="Pausa" type="Button" parent="."]
+texture_filter = 1
+offset_left = 2.0
+offset_top = 608.0
+offset_right = 128.0
+offset_bottom = 646.0
+theme = SubResource("Theme_m7u8i")
+text = "PAUSA"
+flat = true

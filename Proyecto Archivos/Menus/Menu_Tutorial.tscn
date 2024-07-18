@@ -20,6 +20,7 @@ font = ExtResource("2_3fmfb")
 font_size = 32
 
 [node name="Control" type="Control"]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -125,3 +126,4 @@ icon_alignment = 1
 expand_icon = true
 
 [connection signal="pressed" from="VBoxContainer/HFlowContainer4/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/HFlowContainer4/Siguiente" to="." method="_on_siguiente_pressed"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://brde1nnrstqpi"]
 
 [ext_resource type="Texture2D" uid="uid://rct63oxyyg7t" path="res://Sprites/Fondos/fondoOficial.png" id="1_5op5h"]
-[ext_resource type="Script" path="res://Menus/Menu_Principal.gd" id="1_na7y8"]
+[ext_resource type="Script" path="res://Scripts/Menus/Menu_Principal.gd" id="1_iiir0"]
 [ext_resource type="Texture2D" uid="uid://bo3n8k2iusxxs" path="res://Sprites/Botones/start_buttonNormal.png" id="2_agllw"]
 [ext_resource type="Texture2D" uid="uid://v6iiktjosr84" path="res://Sprites/Botones/start_buttonOver.png" id="3_6iilv"]
 [ext_resource type="Texture2D" uid="uid://bcfxh3hp121yb" path="res://Sprites/Botones/start_buttonPressedl.png" id="4_3y3i4"]
@@ -13,13 +13,14 @@
 [ext_resource type="Texture2D" uid="uid://b2ku28y0kfm0b" path="res://Sprites/Botones/CreditosPressedl.png" id="10_qx38b"]
 
 [node name="MenuPrincipal" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_na7y8")
+script = ExtResource("1_iiir0")
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]

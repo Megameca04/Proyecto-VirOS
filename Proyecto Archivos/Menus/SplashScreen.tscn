@@ -1,0 +1,149 @@
+[gd_scene load_steps=18 format=3 uid="uid://dnyi05i5gnaam"]
+
+[ext_resource type="Texture2D" uid="uid://cmasin0glybtm" path="res://Sprites/Fondos/fondo.png" id="1_un0tq"]
+[ext_resource type="Texture2D" uid="uid://6q31yn68u0l4" path="res://Sprites/Fondos/LOGO MADE IN GODOT.png" id="2_kalgs"]
+[ext_resource type="Texture2D" uid="uid://c1wyntntkakhn" path="res://Sprites/Iconos/simbolosheet1-sheet.png" id="3_5dige"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8vpr"]
+atlas = ExtResource("3_5dige")
+region = Rect2(0, 0, 505, 505)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3es00"]
+atlas = ExtResource("3_5dige")
+region = Rect2(505, 0, 505, 505)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjixj"]
+atlas = ExtResource("3_5dige")
+region = Rect2(1010, 0, 505, 505)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvvug"]
+atlas = ExtResource("3_5dige")
+region = Rect2(1515, 0, 505, 505)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qs7n5"]
+atlas = ExtResource("3_5dige")
+region = Rect2(2020, 0, 505, 505)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhu6c"]
+atlas = ExtResource("3_5dige")
+region = Rect2(2525, 0, 505, 505)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3vy7"]
+atlas = ExtResource("3_5dige")
+region = Rect2(3030, 0, 505, 505)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_endsn"]
+atlas = ExtResource("3_5dige")
+region = Rect2(3535, 0, 505, 505)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14fj6"]
+atlas = ExtResource("3_5dige")
+region = Rect2(4040, 0, 505, 505)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xytfu"]
+atlas = ExtResource("3_5dige")
+region = Rect2(4545, 0, 505, 505)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dcgc"]
+atlas = ExtResource("3_5dige")
+region = Rect2(5050, 0, 505, 505)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2scrl"]
+atlas = ExtResource("3_5dige")
+region = Rect2(5555, 0, 505, 505)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0x8k"]
+atlas = ExtResource("3_5dige")
+region = Rect2(6060, 0, 505, 505)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_de4yl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8vpr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3es00")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjixj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvvug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qs7n5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhu6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3vy7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_endsn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14fj6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xytfu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dcgc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2scrl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0x8k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="Control" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_vertical_guides_ = [576.0]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_un0tq")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -242.0
+offset_top = -219.0
+offset_right = 241.333
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_kalgs")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(576, 422)
+scale = Vector2(0.331188, 0.331188)
+sprite_frames = SubResource("SpriteFrames_de4yl")
+frame_progress = 0.404342
