@@ -10,7 +10,6 @@ enum ClickStates {
 }
 
 var current_click = ClickStates.NONE
-var cycles = -1
 
 var on_top_bar := false
 var on_window := false
@@ -57,14 +56,9 @@ func get_clicked_file(file : Object, button : int):
 
 func add_new_cleaner():
 	if Grid.get_child_count() < 5:
-		for i in range(int(floor(1.0 + cycles/3.0))):
-			if Grid.get_child_count() < cycles:
-				var nc = Singletons.CLEANER.instantiate()
-				nc.connect("clicked", Callable(self,"get_clicked_file"))
-				Grid.add_child(nc)
-			else:
-				break
-		cycles += 1
+		var nc = Singletons.CLEANER.instantiate()
+		nc.connect("clicked", Callable(self,"get_clicked_file"))
+		Grid.add_child(nc)
 
 func _on_barra_titulo_mouse_entered():
 	on_top_bar = true

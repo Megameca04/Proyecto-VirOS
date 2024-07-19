@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d2yiplwctcac8"]
 
 [ext_resource type="Script" path="res://Scripts/Elementos Ventanas/Virus.gd" id="1_x2lkk"]
-[ext_resource type="Texture2D" uid="uid://drxyqexjwvrek" path="res://Sprites/Iconos/virus.png" id="2_inedp"]
+[ext_resource type="Texture2D" uid="uid://drxyqexjwvrek" path="res://Sprites/Iconos/virus1.png" id="2_kv3bh"]
 
 [sub_resource type="Theme" id="Theme_bvgmm"]
 MarginContainer/constants/margin_bottom = 4
@@ -22,7 +22,7 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("2_inedp")
+texture = ExtResource("2_kv3bh")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
