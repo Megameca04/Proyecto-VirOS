@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Control
 
 @onready var callable_reset = Callable(get_parent(),"reset_game")
 @onready var callable_menu = Callable(get_parent(),"go_to_menu")

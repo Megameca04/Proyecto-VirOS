@@ -73,19 +73,20 @@ func hide_clipboard():
 
 func move_files(copy : bool):
 	moved_files.emit()
-	if copy == true:
-		for i in files_in_clipboard:
-			if !i.is_in_group("Limpiador"):
-					window_with_clipboard.add_file(Singletons.FILE.instantiate(),true)
+	for i in files_in_clipboard:
+		if i.is_in_group("Limpiador"):
+					window_with_clipboard.add_file(i,false)
+		else:
+			if copy:
+				window_with_clipboard.add_file(Singletons.FILE.instantiate(),true)
 			else:
-					window_with_clipboard.add_file(Singletons.CLEANER.instantiate(),true)
-		hide_clipboard()
-	else:
-		for i in files_in_clipboard:
-			window_with_clipboard.add_file(i,false)
+				window_with_clipboard.add_file(i,false)
+			
+	
+	if !copy:
 		files_in_clipboard.clear()
-		clear_selection()
-		hide_clipboard()
+	clear_selection()
+	hide_clipboard()
 
 func spawn_virus():
 	var infected_first_window = false

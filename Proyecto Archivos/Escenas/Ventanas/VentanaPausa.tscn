@@ -21,7 +21,8 @@ script = ExtResource("2_mue84")
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
-anchor_bottom = 0.117647
+anchor_bottom = 0.118
+offset_bottom = -0.0600109
 grow_horizontal = 2
 mouse_filter = 0
 mouse_force_pass_scroll_events = false
@@ -31,7 +32,6 @@ region_rect = Rect2(0, 0, 129, 16)
 patch_margin_left = 1
 patch_margin_top = 1
 patch_margin_right = 52
-axis_stretch_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Cuerpo" type="NinePatchRect" parent="."]

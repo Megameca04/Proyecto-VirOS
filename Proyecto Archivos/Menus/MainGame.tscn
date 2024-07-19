@@ -8,7 +8,7 @@
 process_mode = 3
 script = ExtResource("1_xmkb4")
 
+[node name="Escritorio" parent="." instance=ExtResource("2_0wys2")]
+
 [node name="GameUI" parent="." instance=ExtResource("3_i8q2p")]
 process_mode = 3
-
-[node name="Escritorio" parent="." instance=ExtResource("2_0wys2")]
