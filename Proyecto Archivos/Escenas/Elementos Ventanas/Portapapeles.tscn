@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bfq1af5py0rqe"]
+[gd_scene load_steps=16 format=3 uid="uid://bfq1af5py0rqe"]
 
 [ext_resource type="Script" path="res://Scripts/Elementos Ventanas/BotonesMoverArchivos.gd" id="1_w7tn2"]
 [ext_resource type="Texture2D" uid="uid://c4lo25y8ltr37" path="res://Sprites/Fondos/9x9.png" id="2_5fboy"]
@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://dwuwc2lswem04" path="res://Sprites/Botones/botonCortar2.png" id="5_m4vrs"]
 [ext_resource type="Texture2D" uid="uid://odlrpw3rwg2y" path="res://Sprites/Botones/botonPegar.png" id="6_fajqo"]
 [ext_resource type="Texture2D" uid="uid://vu756461ssgb" path="res://Sprites/Botones/botonPegar2.png" id="7_3ks8t"]
+[ext_resource type="AudioStream" uid="uid://yr1ul7h07jyh" path="res://SFX/Copiar.ogg" id="11_2spql"]
+[ext_resource type="AudioStream" uid="uid://mj5x33cee1sm" path="res://SFX/Cortar.ogg" id="12_ujflk"]
+[ext_resource type="AudioStream" uid="uid://dp8kkwk70evqr" path="res://SFX/Pegar.ogg" id="13_mvjb1"]
 
 [sub_resource type="Theme" id="Theme_p3t1i"]
 MarginContainer/constants/margin_bottom = 4
@@ -89,6 +92,15 @@ layout_mode = 2
 texture_normal = ExtResource("4_l5h82")
 texture_pressed = ExtResource("4_75gjd")
 stretch_mode = 5
+
+[node name="Copiar" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_2spql")
+
+[node name="Cortar" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_ujflk")
+
+[node name="Pegar" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_mvjb1")
 
 [connection signal="pressed" from="HBoxContainer/Copiar/BotonCopiar" to="." method="_on_boton_copiar_pressed"]
 [connection signal="pressed" from="HBoxContainer/Cortar/BotonCortar" to="." method="_on_boton_cortar_pressed"]

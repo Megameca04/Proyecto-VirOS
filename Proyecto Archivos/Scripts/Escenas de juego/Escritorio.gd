@@ -22,6 +22,7 @@ func _ready():
 func clicked_file(window : Object, file : Object, button : int):
 	if button == 0:
 		hide_clipboard()
+		$ClickDer.play()
 	
 	if last_foc_win == null:
 		last_foc_win = window

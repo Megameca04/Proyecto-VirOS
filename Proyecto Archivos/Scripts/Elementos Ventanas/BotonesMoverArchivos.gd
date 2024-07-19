@@ -40,11 +40,14 @@ func show_at(mode : int, coords :  Vector2):
 func _on_boton_copiar_pressed():
 	select_files.emit()
 	copy_at_move = true
+	$Copiar.play()
 
 func _on_boton_cortar_pressed():
 	select_files.emit()
 	copy_at_move = false
+	$Cortar.play()
 
 func _on_boton_pegar_pressed():
 	move_files.emit(copy_at_move)
+	$Pegar.play()
 	

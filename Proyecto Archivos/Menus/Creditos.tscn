@@ -88,7 +88,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 follow_focus = true
-scroll_vertical = 458
+scroll_vertical = 100
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 script = ExtResource("2_65fo7")
@@ -114,10 +114,10 @@ label_settings = SubResource("LabelSettings_3ax1l")
 
 [node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
-text = "Desarrolladores:
+text = "Programación:
 
-    Nestor Alejandro Morales
-    Martin Elias Cudris Aguilar
+    @Darwin6413
+    @Megameca04
  "
 label_settings = SubResource("LabelSettings_gdy3h")
 
@@ -125,7 +125,7 @@ label_settings = SubResource("LabelSettings_gdy3h")
 layout_mode = 2
 text = "Musica:
 
-    Daniel
+    @Slendeff
  "
 label_settings = SubResource("LabelSettings_uq35o")
 
@@ -133,7 +133,7 @@ label_settings = SubResource("LabelSettings_uq35o")
 layout_mode = 2
 text = "Arte:
 
-    Laura
+    @srikachu
  "
 label_settings = SubResource("LabelSettings_vpvcc")
 
