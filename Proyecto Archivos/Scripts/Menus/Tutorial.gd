@@ -30,3 +30,7 @@ func show_button_at_move():
 
 func show_button_at_clipboard():
 	$TextBubble/Button.show()
+
+
+func _on_button_button_down():
+	$TextBubble/SonidoBoton.play()
