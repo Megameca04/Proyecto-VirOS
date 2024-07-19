@@ -57,7 +57,7 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 3
 bbcode_enabled = true
-text = "[center]Clone los archivos a las carpetas donde encuentre [shake rate=20.0 level=5 connected=1][b][color=red]virus[/color][/b][/shake].[/center]"
+text = "[center][color=black]Clone los archivos a las carpetas donde encuentre [shake rate=20.0 level=5 connected=1][b][color=red]virus[/color][/b][/shake]."
 
 [node name="GridContainer" type="GridContainer" parent="Cuerpo/VBoxContainer"]
 custom_minimum_size = Vector2(384, 80)

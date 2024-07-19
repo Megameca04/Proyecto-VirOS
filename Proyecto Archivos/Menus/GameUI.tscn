@@ -1,165 +1,31 @@
-[gd_scene load_steps=25 format=3 uid="uid://ba1i0u1ppfcxh"]
+[gd_scene load_steps=26 format=3 uid="uid://ba1i0u1ppfcxh"]
 
 [ext_resource type="Texture2D" uid="uid://u1g6saxno5i1" path="res://Sprites/Fondos/lineaabajo.png" id="1_2ytoq"]
 [ext_resource type="Script" path="res://Scripts/Escenas de juego/GameUI.gd" id="1_plcs5"]
 [ext_resource type="PackedScene" uid="uid://dx2xkc3smv103" path="res://Escenas/Ventanas/VentanaFinJuego.tscn" id="2_6lu3r"]
 [ext_resource type="PackedScene" uid="uid://by77ic0hoxyx1" path="res://Escenas/Ventanas/VentanaVictoria.tscn" id="3_2gbvw"]
+[ext_resource type="Animation" uid="uid://cdh2kk5x17exf" path="res://Animaciones/MainGame/Game_over.res" id="5_q4d10"]
 [ext_resource type="PackedScene" uid="uid://by4b8ccajks0t" path="res://Escenas/Ventanas/VentanaPausa.tscn" id="5_x1ufb"]
 [ext_resource type="FontFile" uid="uid://dfg1k6mc5n5vw" path="res://Fuentes/Pixellari.ttf" id="6_483ly"]
+[ext_resource type="Animation" uid="uid://xdtnm0eguekk" path="res://Animaciones/MainGame/Pause.res" id="6_u2t0b"]
+[ext_resource type="Animation" uid="uid://bo8t5uhbdxiys" path="res://Animaciones/MainGame/PauseHide.res" id="7_5paj2"]
 [ext_resource type="Texture2D" uid="uid://dkn5052bg2qi3" path="res://Sprites/Botones/Normal.png" id="7_yjtfq"]
 [ext_resource type="Texture2D" uid="uid://gyq7bp38c0e1" path="res://Sprites/Botones/Over.png" id="8_0iqhu"]
+[ext_resource type="Animation" uid="uid://dxpvnxbpt61tm" path="res://Animaciones/MainGame/Victory.res" id="8_mxdqr"]
 [ext_resource type="Texture2D" uid="uid://ibwdrucjl3jf" path="res://Sprites/Botones/Pressedl.png" id="9_7orkv"]
-[ext_resource type="AudioStream" uid="uid://b2o0q8k5d1vqb" path="res://SFX/Game_over.mp3" id="10_rx50p"]
 [ext_resource type="AudioStream" uid="uid://bles6mi3ldcem" path="res://SFX/Click_der.ogg" id="11_ee738"]
 
-[sub_resource type="Animation" id="Animation_5wcgr"]
-resource_name = "Game_over"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("GameUI/ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 12.5533),
-"update": 0,
-"values": [Color(0.227451, 0.227451, 0.227451, 0), Color(0.227451, 0.227451, 0.227451, 0.752941)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("GameUI/VenFinJuego:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [Vector2(370, -224), Vector2(326, 224)]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("GameUI/VenFinJuego")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.6),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"show_text"
-}]
-}
-tracks/3/type = "audio"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("GameUI/Game_over")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("10_rx50p")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/3/use_blend = true
-
-[sub_resource type="Animation" id="Animation_42cry"]
-resource_name = "Pause"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("GameUI/ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.227451, 0.227451, 0.227451, 0), Color(0.227451, 0.227451, 0.227451, 0.752941)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("GameUI/VentanaPausa:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [Vector2(1250, 270), Vector2(386, 239)]
-}
-
-[sub_resource type="Animation" id="Animation_8hjuv"]
-resource_name = "PauseHide"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("GameUI/ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.227451, 0.227451, 0.227451, 0.752941), Color(0.227451, 0.227451, 0.227451, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("GameUI/VentanaPausa:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(1250, 270)]
-}
-
-[sub_resource type="Animation" id="Animation_gpxbu"]
-resource_name = "Victory"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("GameUI/VentanaVictoria:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [Vector2(1297, -219), Vector2(386, 239)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("GameUI/VentanaVictoria")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"show_text"
-}]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_do527"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7v25r"]
 _data = {
-"Game_over": SubResource("Animation_5wcgr"),
-"Pause": SubResource("Animation_42cry"),
-"PauseHide": SubResource("Animation_8hjuv"),
-"Victory": SubResource("Animation_gpxbu")
+"Game_over": ExtResource("5_q4d10"),
+"Pause": ExtResource("6_u2t0b"),
+"PauseHide": ExtResource("7_5paj2"),
+"Victory": ExtResource("8_mxdqr")
 }
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c3wfn"]
 
 [sub_resource type="FontVariation" id="FontVariation_kwavf"]
 base_font = ExtResource("6_483ly")
@@ -282,7 +148,9 @@ grow_vertical = 2
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_do527")
+"": SubResource("AnimationLibrary_do527"),
+"MainGame": SubResource("AnimationLibrary_7v25r"),
+"Tutorial": SubResource("AnimationLibrary_c3wfn")
 }
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]

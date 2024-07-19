@@ -1,6 +1,7 @@
 extends Control
 
 signal game_ends(victory : bool)
+signal moved_files()
 
 var selected_pool = []
 var files_in_clipboard = []
@@ -71,6 +72,7 @@ func hide_clipboard():
 	Clipboard.reset_pos()
 
 func move_files(copy : bool):
+	moved_files.emit()
 	if copy == true:
 		for i in files_in_clipboard:
 			if !i.is_in_group("Limpiador"):

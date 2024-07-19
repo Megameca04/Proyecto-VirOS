@@ -4,6 +4,7 @@ signal file_clicked(window : Object, file : Object, button : int)
 signal show_paste_menu(coord  : Vector2)
 signal hide_clipboard()
 signal game_ends(victory : bool)
+signal moved()
 
 enum ClickStates {
 	NONE,
@@ -123,5 +124,6 @@ func _on_barra_titulo_gui_input(event):
 			can_move = true
 			initial_mov_pos = global_position
 			init_mou_pos = get_global_mouse_position()
+			moved.emit()
 		else:
 			can_move = false

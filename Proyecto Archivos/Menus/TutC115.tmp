@@ -1,0 +1,1077 @@
+[gd_scene load_steps=41 format=3 uid="uid://xu3xhfj5o4b7"]
+
+[ext_resource type="Script" path="res://Scripts/Menus/Tutorial.gd" id="1_bf38m"]
+[ext_resource type="Script" path="res://Scripts/Escenas de juego/GameUI.gd" id="2_v8sa5"]
+[ext_resource type="PackedScene" uid="uid://dx2xkc3smv103" path="res://Escenas/Ventanas/VentanaFinJuego.tscn" id="3_typ0o"]
+[ext_resource type="PackedScene" uid="uid://by77ic0hoxyx1" path="res://Escenas/Ventanas/VentanaVictoria.tscn" id="4_ieood"]
+[ext_resource type="PackedScene" uid="uid://by4b8ccajks0t" path="res://Escenas/Ventanas/VentanaPausa.tscn" id="5_ipfxj"]
+[ext_resource type="Texture2D" uid="uid://u1g6saxno5i1" path="res://Sprites/Fondos/lineaabajo.png" id="6_i8htq"]
+[ext_resource type="FontFile" uid="uid://dfg1k6mc5n5vw" path="res://Fuentes/Pixellari.ttf" id="7_fprff"]
+[ext_resource type="Texture2D" uid="uid://dkn5052bg2qi3" path="res://Sprites/Botones/Normal.png" id="8_76jpn"]
+[ext_resource type="Texture2D" uid="uid://gyq7bp38c0e1" path="res://Sprites/Botones/Over.png" id="9_vxt5l"]
+[ext_resource type="Texture2D" uid="uid://ibwdrucjl3jf" path="res://Sprites/Botones/Pressedl.png" id="10_6g35v"]
+[ext_resource type="AudioStream" uid="uid://bles6mi3ldcem" path="res://SFX/Click_der.ogg" id="11_cd4na"]
+[ext_resource type="Theme" uid="uid://bonfvega22e4i" path="res://Temas/Configuración ventanas.tres" id="12_us3ah"]
+[ext_resource type="Script" path="res://Scripts/Escenas de juego/Escritorio.gd" id="13_4lscd"]
+[ext_resource type="Texture2D" uid="uid://rct63oxyyg7t" path="res://Sprites/Fondos/fondoOficial.png" id="14_jat54"]
+[ext_resource type="PackedScene" uid="uid://bfq1af5py0rqe" path="res://Escenas/Elementos Ventanas/Portapapeles.tscn" id="15_wfryg"]
+[ext_resource type="PackedScene" uid="uid://dk2wj8bmajkf0" path="res://Escenas/Ventanas/Ventana.tscn" id="16_76xk0"]
+[ext_resource type="PackedScene" uid="uid://du4pk8auc6lqs" path="res://Escenas/Ventanas/VentanaAntivirus.tscn" id="17_y24pc"]
+[ext_resource type="PackedScene" uid="uid://bl6qxp1wyfawo" path="res://Escenas/Ventanas/AdministradorEspacio.tscn" id="18_nin8c"]
+[ext_resource type="Texture2D" uid="uid://csud87k8lf7nw" path="res://Sprites/Barras de titulo/ventanaFina.png" id="20_s5owe"]
+[ext_resource type="Texture2D" uid="uid://c4lo25y8ltr37" path="res://Sprites/Fondos/9x9.png" id="21_csiwm"]
+[ext_resource type="Texture2D" uid="uid://dmfy5f4xhq1rl" path="res://Sprites/Iconos/pinny.png" id="22_u6k41"]
+[ext_resource type="Texture2D" uid="uid://d1j8hvotf33m5" path="res://Sprites/Iconos/Burbujita.png" id="23_et2s7"]
+[ext_resource type="Texture2D" uid="uid://bilundl632nqh" path="res://Sprites/Iconos/Burbujita volteada.png" id="23_rkjx7"]
+[ext_resource type="Texture2D" uid="uid://cfmdbegwxspri" path="res://Sprites/Iconos/continue.png" id="24_450wp"]
+
+[sub_resource type="FontVariation" id="FontVariation_kwavf"]
+base_font = ExtResource("7_fprff")
+spacing_top = 2
+spacing_bottom = 2
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1jhop"]
+texture = ExtResource("8_76jpn")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_klk56"]
+texture = ExtResource("9_vxt5l")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7wvgn"]
+texture = ExtResource("10_6g35v")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a5q7s"]
+bg_color = Color(0.827451, 0.827451, 0.827451, 1)
+border_width_left = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.607843, 0.678431, 0.717647, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tl24q"]
+bg_color = Color(0.580392, 0.0862745, 0.498039, 1)
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_00q58"]
+bg_color = Color(0.913725, 0.203922, 0.47451, 1)
+
+[sub_resource type="Theme" id="Theme_m7u8i"]
+default_font = ExtResource("7_fprff")
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0.203922, 0.203922, 0.203922, 0.501961)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/constants/h_separation = 2
+Button/constants/icon_max_width = 16
+Button/fonts/font = SubResource("FontVariation_kwavf")
+Button/styles/focus = SubResource("StyleBoxTexture_1jhop")
+Button/styles/hover = SubResource("StyleBoxTexture_klk56")
+Button/styles/normal = SubResource("StyleBoxTexture_1jhop")
+Button/styles/pressed = SubResource("StyleBoxTexture_7wvgn")
+Label/colors/font_color = Color(0, 0, 0, 1)
+MarginContainer/constants/margin_bottom = 4
+MarginContainer/constants/margin_left = 4
+MarginContainer/constants/margin_right = 4
+MarginContainer/constants/margin_top = 4
+Panel/styles/panel = SubResource("StyleBoxFlat_a5q7s")
+ProgressBar/fonts/font = ExtResource("7_fprff")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_tl24q")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_00q58")
+RichTextLabel/fonts/bold_font = ExtResource("7_fprff")
+RichTextLabel/fonts/bold_italics_font = ExtResource("7_fprff")
+RichTextLabel/fonts/italics_font = ExtResource("7_fprff")
+RichTextLabel/fonts/mono_font = ExtResource("7_fprff")
+RichTextLabel/fonts/normal_font = ExtResource("7_fprff")
+
+[sub_resource type="Animation" id="Animation_t2tn8"]
+resource_name = "Inicio"
+length = 12.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameUI/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VenAlertaTut:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(-540, 240), Vector2(326, 224)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VenAlertaTut/RichTextLabel:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3, 5, 6, 8, 8.5, 8.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.433, 0.433, 0.794, 0.794, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pinny:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 10, 10.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1e-05, 1e-05), Vector2(5, 5)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextBubble:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 10.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(1330, 910), Vector2(730, 370)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TextBubble:size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(10.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(240, 70)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TextBubble:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(10.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("23_rkjx7")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TextBubble/RichTextLabel:text")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(10.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["!Oh no! Parece que tu PC se infectó con un virus."]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("TextBubble/RichTextLabel:visible_ratio")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(10.5, 11.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("TextBubble/Button")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 11.7),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"hide"
+}, {
+"args": [],
+"method": &"show"
+}]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Pinny:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(980, 490)]
+}
+
+[sub_resource type="Animation" id="Animation_5rgqy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VenAlertaTut/RichTextLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.433]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pinny:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(140, 470)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextBubble:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(210, 320)]
+}
+
+[sub_resource type="Animation" id="Animation_u1ath"]
+resource_name = "Organizar ventanas"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VenAlertaTut:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(-540, 240)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pinny:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5, 5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextBubble:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(630, 330)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextBubble:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(330, 110)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextBubble:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("23_rkjx7")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TextBubble/RichTextLabel:text")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["¡Hay que prepararse! Si la vista te molesta, puedes mover las ventanas arrastrando la barra superior con el click izquierdo"]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TextBubble/RichTextLabel:visible_ratio")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TextBubble/Button")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"hide"
+}]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"activate"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_r6bws"]
+resource_name = "Mover archivos"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pinny:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5, 5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextBubble:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(630, 330)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextBubble:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(330, 110)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextBubble:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("23_rkjx7")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextBubble/RichTextLabel:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Si haces click derecho sobre un archivo, abres el portapapeles, que te permite copiar, cortar, eliminar y pegar archivos."]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TextBubble/RichTextLabel:visible_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TextBubble/Button")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"hide"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_yuv8h"]
+resource_name = "Limpiadores"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pinny:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5, 5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextBubble:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(210, 320)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextBubble:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(330, 110)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextBubble:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("23_et2s7")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextBubble/RichTextLabel:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Para poder eliminar los virus tendrás que mover los archivos limpiadores a las carpetas en las que se encuentran."]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TextBubble/RichTextLabel:visible_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TextBubble/Button")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"hide"
+}, {
+"args": [],
+"method": &"show"
+}]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Pinny:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(140, 470)]
+}
+
+[sub_resource type="Animation" id="Animation_hblqh"]
+resource_name = "Memoria"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pinny:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5, 5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextBubble:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(210, 320)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextBubble:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(330, 110)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextBubble:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("23_et2s7")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextBubble/RichTextLabel:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Ten cuidado y no copies demasiados, si la memoria se llena, pierdes el juego."]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TextBubble/RichTextLabel:visible_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TextBubble/Button")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"hide"
+}, {
+"args": [],
+"method": &"show"
+}]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Pinny:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(140, 470)]
+}
+
+[sub_resource type="Animation" id="Animation_vc5xh"]
+resource_name = "Fin"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pinny:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5, 5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextBubble:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(210, 320)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextBubble:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(330, 110)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextBubble:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("23_et2s7")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextBubble/RichTextLabel:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Eso debería ser suficiente ¡Buena suerte!"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TextBubble/RichTextLabel:visible_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TextBubble/Button")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"hide"
+}, {
+"args": [],
+"method": &"show"
+}]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Pinny:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(140, 470)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_476bs"]
+_data = {
+"Fin": SubResource("Animation_vc5xh"),
+"Inicio": SubResource("Animation_t2tn8"),
+"Limpiadores": SubResource("Animation_yuv8h"),
+"Memoria": SubResource("Animation_hblqh"),
+"Mover archivos": SubResource("Animation_r6bws"),
+"Organizar ventanas": SubResource("Animation_u1ath"),
+"RESET": SubResource("Animation_5rgqy")
+}
+
+[node name="Tutorial" type="Node"]
+process_mode = 3
+script = ExtResource("1_bf38m")
+
+[node name="GameUI" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("2_v8sa5")
+
+[node name="ColorRect" type="ColorRect" parent="GameUI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="VenFinJuego" parent="GameUI" instance=ExtResource("3_typ0o")]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = -0.003
+anchor_right = 0.5
+anchor_bottom = -0.003
+offset_left = -206.0
+offset_top = -222.056
+offset_right = 294.0
+offset_bottom = -22.056
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VentanaVictoria" parent="GameUI" instance=ExtResource("4_ieood")]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 145.0
+offset_top = -219.0
+offset_right = 525.0
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VentanaPausa" parent="GameUI" instance=ExtResource("5_ipfxj")]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 98.0
+offset_top = -54.0
+offset_right = 478.0
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="GameUI"]
+process_mode = 1
+texture_filter = 1
+custom_minimum_size = Vector2(0, 42)
+anchors_preset = -1
+anchor_top = 0.935
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.119995
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("6_i8htq")
+patch_margin_left = 129
+patch_margin_right = 1
+
+[node name="Pausa" type="Button" parent="GameUI"]
+texture_filter = 1
+offset_left = 2.0
+offset_top = 608.0
+offset_right = 128.0
+offset_bottom = 646.0
+theme = SubResource("Theme_m7u8i")
+text = "PAUSA"
+flat = true
+
+[node name="Game_over" type="AudioStreamPlayer" parent="GameUI"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="GameUI"]
+stream = ExtResource("11_cd4na")
+
+[node name="Escritorio" type="Control" parent="." groups=["Escritorio"]]
+process_mode = 1
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("12_us3ah")
+script = ExtResource("13_4lscd")
+
+[node name="TextureRect" type="TextureRect" parent="Escritorio"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_jat54")
+expand_mode = 5
+stretch_mode = 6
+
+[node name="Clipboard" parent="Escritorio" instance=ExtResource("15_wfryg")]
+layout_mode = 0
+offset_top = -180.0
+offset_right = 104.0
+offset_bottom = -9.0
+
+[node name="Ventana" parent="Escritorio" instance=ExtResource("16_76xk0")]
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 640.0
+offset_bottom = 330.0
+
+[node name="Ventana2" parent="Escritorio" instance=ExtResource("16_76xk0")]
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 640.0
+offset_bottom = 330.0
+
+[node name="Antivirus" parent="Escritorio" instance=ExtResource("17_y24pc")]
+offset_left = 740.0
+offset_top = 320.0
+offset_right = 1124.0
+offset_bottom = 480.0
+
+[node name="AdministradorDisco" parent="Escritorio" instance=ExtResource("18_nin8c")]
+offset_left = 730.0
+offset_top = 20.0
+offset_right = 1130.0
+offset_bottom = 300.0
+
+[node name="ClickDer" type="AudioStreamPlayer" parent="Escritorio"]
+stream = ExtResource("11_cd4na")
+
+[node name="VenAlertaTut" type="Control" parent="."]
+process_mode = 3
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 326.0
+offset_top = -100.0
+offset_right = 826.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("12_us3ah")
+metadata/_edit_horizontal_guides_ = [200.0]
+
+[node name="BarraTitulo" type="NinePatchRect" parent="VenAlertaTut"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 0.1
+offset_bottom = -12.0
+mouse_filter = 0
+mouse_force_pass_scroll_events = false
+mouse_default_cursor_shape = 2
+texture = ExtResource("20_s5owe")
+region_rect = Rect2(0, 0, 129, 16)
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 52
+axis_stretch_vertical = 2
+
+[node name="Cuerpo" type="NinePatchRect" parent="VenAlertaTut"]
+modulate = Color(1, 0.541176, 0.47451, 1)
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+anchor_top = 0.067
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 6.6
+mouse_filter = 1
+texture = ExtResource("21_csiwm")
+region_rect = Rect2(0, 0, 9, 9)
+patch_margin_left = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VenAlertaTut"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+anchor_left = 0.026
+anchor_top = 0.067
+anchor_right = 0.98
+anchor_bottom = 0.95
+offset_top = 18.6
+offset_bottom = -1.52588e-05
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[color=white][font_size=24][center]Hemos accedido a su computadora
+[font_size=48][shake rate=20.0 level=5 connected=1][color=Black]PREPARESE PARA SER INVANDIDO[/color][/shake][/font_size]
+[font_size=16]Atte: Los virus[/font_size][/center]"
+visible_characters = 32
+visible_ratio = 0.433
+
+[node name="Pinny" type="Sprite2D" parent="."]
+process_mode = 3
+texture_filter = 1
+position = Vector2(140, 470)
+scale = Vector2(5, 5)
+texture = ExtResource("22_u6k41")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 3
+libraries = {
+"": SubResource("AnimationLibrary_476bs")
+}
+autoplay = "Inicio"
+
+[node name="TextBubble" type="NinePatchRect" parent="."]
+process_mode = 3
+texture_filter = 1
+offset_left = 210.0
+offset_top = 320.0
+offset_right = 450.0
+offset_bottom = 390.0
+theme = ExtResource("12_us3ah")
+texture = ExtResource("23_rkjx7")
+patch_margin_left = 6
+patch_margin_top = 3
+patch_margin_right = 5
+patch_margin_bottom = 7
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextBubble"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.083
+anchor_top = 0.171
+anchor_right = 0.833
+anchor_bottom = 0.843
+offset_left = 0.079998
+offset_top = 0.0299997
+offset_right = 0.0799866
+offset_bottom = -0.0100021
+theme = ExtResource("12_us3ah")
+text = "!Oh no! Parece que tu PC se infectó con un virus."
+scroll_active = false
+scroll_following = true
+visible_characters = 24
+visible_ratio = 0.5
+
+[node name="Button" type="Button" parent="TextBubble"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.875
+anchor_top = 0.286
+anchor_right = 0.958
+anchor_bottom = 0.571
+offset_left = -1.52588e-05
+offset_top = -0.0200005
+offset_right = 0.0799866
+offset_bottom = 0.0299988
+icon = ExtResource("24_450wp")
+
+[connection signal="button_down" from="GameUI/Pausa" to="GameUI" method="_on_pausa_button_down"]
+[connection signal="moved_files" from="Escritorio" to="." method="show_button_at_clipboard"]
+[connection signal="moved" from="Escritorio/Ventana" to="." method="show_button_at_move"]
+[connection signal="moved" from="Escritorio/Ventana2" to="." method="show_button_at_move"]
+[connection signal="pressed" from="TextBubble/Button" to="." method="_on_button_pressed"]

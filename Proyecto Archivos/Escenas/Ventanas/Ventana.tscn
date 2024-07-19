@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dk2wj8bmajkf0"]
+[gd_scene load_steps=5 format=3 uid="uid://dk2wj8bmajkf0"]
 
 [ext_resource type="Script" path="res://Scripts/Ventanas/Ventana.gd" id="1_tgup3"]
 [ext_resource type="Texture2D" uid="uid://35sp7vgsy047" path="res://Sprites/Barras de titulo/ventanaArriba.png" id="2_i54jj"]
 [ext_resource type="Texture2D" uid="uid://c4lo25y8ltr37" path="res://Sprites/Fondos/9x9.png" id="3_xnedt"]
+[ext_resource type="PackedScene" uid="uid://be81yo730xtn5" path="res://Escenas/Elementos Ventanas/Archivo.tscn" id="4_lq0ls"]
 
 [node name="Ventana" type="Control" groups=["Ventana"]]
 texture_filter = 1
@@ -60,6 +61,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
 columns = 8
+
+[node name="Archivo" parent="Cuerpo/ScrollContainer/GridContainer" instance=ExtResource("4_lq0ls")]
+layout_mode = 2
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

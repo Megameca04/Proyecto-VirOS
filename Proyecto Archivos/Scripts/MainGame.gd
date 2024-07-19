@@ -4,9 +4,9 @@ func game_ends(victory : bool):
 	get_tree().paused = true
 	
 	if victory:
-		$GameUI.show_animation("Victory")
+		$GameUI.show_animation("MainGame/Victory")
 	else:
-		$GameUI.show_animation("Game_over")
+		$GameUI.show_animation("MainGame/Game_over")
 
 func reset_game():
 	get_tree().paused = false
@@ -18,8 +18,8 @@ func go_to_menu():
 
 func show_pause():
 	get_tree().paused = true
-	$GameUI.show_animation("Pause")
+	$GameUI.show_animation("MainGame/Pause")
 
 func hide_pause():
-	$GameUI.show_animation("PauseHide")
+	$GameUI.show_animation("MainGame/PauseHide")
 	get_tree().paused = false
