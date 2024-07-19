@@ -15,4 +15,7 @@ func _on_menu_principal_pressed():
 	go_to_menu.emit()
 
 func _on_reiniciar_pressed():
-	reset_game.emit()
+	reset_game.emit()	
+
+func _on_menu_principal_button_down():
+	$AudioStreamPlayer.play()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c78rtymaup20u"]
+[gd_scene load_steps=13 format=3 uid="uid://c78rtymaup20u"]
 
 [ext_resource type="Script" path="res://Scripts/Menus/Menu_Tutorial.gd" id="1_din2y"]
 [ext_resource type="Texture2D" uid="uid://rct63oxyyg7t" path="res://Sprites/Fondos/fondoOficial.png" id="1_np7bq"]
@@ -9,6 +9,7 @@
 [ext_resource type="Theme" uid="uid://vlttyuh3ulp4" path="res://Menus/TemaBotonesMenu.tres" id="6_qwlpv"]
 [ext_resource type="Texture2D" uid="uid://32pn6rrhp2m" path="res://Sprites/Iconos/home.png" id="7_8t81m"]
 [ext_resource type="Texture2D" uid="uid://cfmdbegwxspri" path="res://Sprites/Iconos/continue.png" id="8_s1686"]
+[ext_resource type="AudioStream" uid="uid://bles6mi3ldcem" path="res://SFX/Click_der.ogg" id="10_pjknt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cvns0"]
 font = ExtResource("2_3fmfb")
@@ -125,5 +126,10 @@ icon = ExtResource("8_s1686")
 icon_alignment = 1
 expand_icon = true
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_pjknt")
+
+[connection signal="button_down" from="VBoxContainer/HFlowContainer4/Menu" to="." method="_on_menu_button_down"]
 [connection signal="pressed" from="VBoxContainer/HFlowContainer4/Menu" to="." method="_on_menu_pressed"]
+[connection signal="button_down" from="VBoxContainer/HFlowContainer4/Siguiente" to="." method="_on_siguiente_button_down"]
 [connection signal="pressed" from="VBoxContainer/HFlowContainer4/Siguiente" to="." method="_on_siguiente_pressed"]

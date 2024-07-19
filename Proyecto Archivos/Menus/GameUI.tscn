@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ba1i0u1ppfcxh"]
+[gd_scene load_steps=25 format=3 uid="uid://ba1i0u1ppfcxh"]
 
 [ext_resource type="Texture2D" uid="uid://u1g6saxno5i1" path="res://Sprites/Fondos/lineaabajo.png" id="1_2ytoq"]
 [ext_resource type="Script" path="res://Scripts/Escenas de juego/GameUI.gd" id="1_plcs5"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://gyq7bp38c0e1" path="res://Sprites/Botones/Over.png" id="8_0iqhu"]
 [ext_resource type="Texture2D" uid="uid://ibwdrucjl3jf" path="res://Sprites/Botones/Pressedl.png" id="9_7orkv"]
 [ext_resource type="AudioStream" uid="uid://b2o0q8k5d1vqb" path="res://SFX/Game_over.mp3" id="10_rx50p"]
+[ext_resource type="AudioStream" uid="uid://bles6mi3ldcem" path="res://SFX/Click_der.ogg" id="11_ee738"]
 
 [sub_resource type="Animation" id="Animation_5wcgr"]
 resource_name = "Game_over"
@@ -310,3 +311,8 @@ text = "PAUSA"
 flat = true
 
 [node name="Game_over" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_ee738")
+
+[connection signal="button_down" from="Pausa" to="." method="_on_pausa_button_down"]

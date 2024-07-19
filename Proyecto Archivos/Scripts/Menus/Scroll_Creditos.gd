@@ -8,10 +8,10 @@ func _input(event: InputEvent) -> void:
 		# Obtén el desplazamiento del mouse en píxeles
 		var delta = event.relative
 		if movimiento >= 0 and movimiento<= 500:
-			movimiento += delta.y * 2
+			movimiento += delta.y * 5
 		elif movimiento > 500:
-			movimiento -= 2
+			movimiento -= 5
 		elif movimiento < 0:
-			movimiento += 2	
+			movimiento += 5
 		# Ajusta la posición de desplazamiento del ScrollContainer
 		set_v_scroll(movimiento)

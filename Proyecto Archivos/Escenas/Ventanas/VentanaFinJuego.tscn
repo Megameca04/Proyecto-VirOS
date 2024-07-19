@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dx2xkc3smv103"]
+[gd_scene load_steps=9 format=3 uid="uid://dx2xkc3smv103"]
 
 [ext_resource type="Texture2D" uid="uid://csud87k8lf7nw" path="res://Sprites/Barras de titulo/ventanaFina.png" id="1_2habr"]
 [ext_resource type="Script" path="res://Scripts/Ventanas/VentanaFinJuego.gd" id="1_geg1r"]
 [ext_resource type="Theme" uid="uid://bonfvega22e4i" path="res://Temas/Configuración ventanas.tres" id="1_s00jl"]
 [ext_resource type="Texture2D" uid="uid://c4lo25y8ltr37" path="res://Sprites/Fondos/9x9.png" id="2_q42a4"]
 [ext_resource type="Texture2D" uid="uid://32pn6rrhp2m" path="res://Sprites/Iconos/home.png" id="3_1mjbj"]
+[ext_resource type="AudioStream" uid="uid://bles6mi3ldcem" path="res://SFX/Click_der.ogg" id="6_nu74v"]
 
 [sub_resource type="Animation" id="Animation_dtsne"]
 resource_name = "Show_text"
@@ -137,5 +138,10 @@ libraries = {
 "": SubResource("AnimationLibrary_4tn45")
 }
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_nu74v")
+
+[connection signal="button_down" from="HBoxContainer/MarginContainer/MenuPrincipal" to="." method="_on_menu_principal_button_down"]
 [connection signal="pressed" from="HBoxContainer/MarginContainer/MenuPrincipal" to="." method="_on_menu_principal_pressed"]
+[connection signal="button_down" from="HBoxContainer/MarginContainer2/Reiniciar" to="." method="_on_menu_principal_button_down"]
 [connection signal="pressed" from="HBoxContainer/MarginContainer2/Reiniciar" to="." method="_on_reiniciar_pressed"]

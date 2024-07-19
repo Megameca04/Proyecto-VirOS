@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dn78bk7kcjypk"]
+[gd_scene load_steps=20 format=3 uid="uid://dn78bk7kcjypk"]
 
 [ext_resource type="Texture2D" uid="uid://rct63oxyyg7t" path="res://Sprites/Fondos/fondoOficial.png" id="1_0humk"]
 [ext_resource type="Script" path="res://Scripts/Menus/Creditos.gd" id="1_o850o"]
@@ -8,7 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dkn5052bg2qi3" path="res://Sprites/Botones/Normal.png" id="4_6h1y8"]
 [ext_resource type="Texture2D" uid="uid://gyq7bp38c0e1" path="res://Sprites/Botones/Over.png" id="5_xgoep"]
 [ext_resource type="Texture2D" uid="uid://ibwdrucjl3jf" path="res://Sprites/Botones/Pressedl.png" id="6_wctkw"]
-[ext_resource type="Texture2D" uid="uid://bsevk1b30fo6o" path="res://Sprites/Iconos/volver.png" id="7_cakb4"]
+[ext_resource type="Texture2D" uid="uid://32pn6rrhp2m" path="res://Sprites/Iconos/home.png" id="9_pffbf"]
+[ext_resource type="AudioStream" uid="uid://bles6mi3ldcem" path="res://SFX/Click_der.ogg" id="10_uvxnt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_k1tjl"]
 font = ExtResource("2_f2hi1")
@@ -153,7 +154,7 @@ size_flags_vertical = 4
 
 [node name="Button" type="Button" parent="ScrollContainer/VBoxContainer/MarginContainer"]
 texture_filter = 3
-custom_minimum_size = Vector2(128, 128)
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -162,8 +163,12 @@ theme_type_variation = &"FlatButton"
 theme_override_styles/normal = SubResource("StyleBoxTexture_wesil")
 theme_override_styles/hover = SubResource("StyleBoxTexture_v0514")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_sduyd")
-icon = ExtResource("7_cakb4")
+icon = ExtResource("9_pffbf")
 icon_alignment = 1
 expand_icon = true
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_uvxnt")
+
+[connection signal="button_down" from="ScrollContainer/VBoxContainer/MarginContainer/Button" to="." method="_on_button_button_down"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/MarginContainer/Button" to="." method="_on_button_pressed"]

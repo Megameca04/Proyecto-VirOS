@@ -23,7 +23,7 @@ var init_mou_pos := Vector2.ZERO
 
 var grupo_archivos = []  # Almacena los nodos en el grupo "Archivo"
 var cantidad_de_archivos = 0
-@export var max_cantidad_archivos = 50
+@export var max_cantidad_archivos = 80
 
 var grupo_virus = []
 var cantidad_virus = 0

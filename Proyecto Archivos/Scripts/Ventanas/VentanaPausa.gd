@@ -15,3 +15,7 @@ func _on_reiniciar_pressed():
 
 func _on_volver_al_juego_pressed():
 	continue_game.emit()
+
+
+func _on_menu_principal_button_down():
+	$AudioStreamPlayer.play()

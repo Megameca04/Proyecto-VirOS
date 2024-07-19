@@ -18,3 +18,7 @@ func _ready():
 func show_animation(name):
 	$AnimationPlayer.play(name)
 
+
+
+func _on_pausa_button_down():
+	$AudioStreamPlayer.play()
