@@ -12,3 +12,5 @@ script = ExtResource("1_xmkb4")
 
 [node name="GameUI" parent="." instance=ExtResource("3_i8q2p")]
 process_mode = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

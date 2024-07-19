@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cb144x4ygpj4t"]
+[gd_scene load_steps=7 format=3 uid="uid://cb144x4ygpj4t"]
 
 [ext_resource type="Script" path="res://Scripts/Elementos Ventanas/Limpiador.gd" id="1_x5nsr"]
+[ext_resource type="Texture2D" uid="uid://qytqa461nb3g" path="res://Sprites/Iconos/pill.png" id="2_fu56m"]
 
 [sub_resource type="Theme" id="Theme_dlcfb"]
 MarginContainer/constants/margin_bottom = 4
@@ -51,6 +52,7 @@ theme = SubResource("Theme_ck5en")
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
 layout_mode = 2
+texture = ExtResource("2_fu56m")
 stretch_mode = 4
 
 [node name="Panel" type="Panel" parent="."]
@@ -63,9 +65,6 @@ theme = SubResource("Theme_gx217")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 2
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

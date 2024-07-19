@@ -871,6 +871,7 @@ grow_vertical = 2
 
 [node name="NinePatchRect" type="NinePatchRect" parent="GameUI"]
 process_mode = 1
+z_index = 1
 texture_filter = 1
 custom_minimum_size = Vector2(0, 42)
 layout_mode = 1
