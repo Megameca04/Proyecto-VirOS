@@ -14,5 +14,4 @@ func _input(event: InputEvent) -> void:
 		elif movimiento < -80:
 			movimiento += velocidad
 		# Ajusta la posición de desplazamiento del ScrollContainer
-		print(movimiento)
 		set_v_scroll(movimiento)
