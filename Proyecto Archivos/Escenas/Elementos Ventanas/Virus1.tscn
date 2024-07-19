@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2yiplwctcac8"]
+
+[ext_resource type="Script" path="res://Scripts/Elementos Ventanas/Virus.gd" id="1_x2lkk"]
+[ext_resource type="Texture2D" uid="uid://drxyqexjwvrek" path="res://Sprites/Iconos/virus1.png" id="2_inedp"]
+
+[sub_resource type="Theme" id="Theme_bvgmm"]
+MarginContainer/constants/margin_bottom = 4
+MarginContainer/constants/margin_left = 4
+MarginContainer/constants/margin_right = 4
+MarginContainer/constants/margin_top = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_8xn3d"]
+
+[node name="Virus" type="MarginContainer" groups=["Archivo", "Virus"]]
+custom_minimum_size = Vector2(72, 72)
+offset_right = 64.0
+offset_bottom = 64.0
+theme = SubResource("Theme_bvgmm")
+script = ExtResource("1_x2lkk")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_inedp")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_8xn3d")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
