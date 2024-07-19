@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dn78bk7kcjypk"]
+[gd_scene load_steps=21 format=3 uid="uid://dn78bk7kcjypk"]
 
 [ext_resource type="Texture2D" uid="uid://rct63oxyyg7t" path="res://Sprites/Fondos/fondoOficial.png" id="1_0humk"]
 [ext_resource type="Script" path="res://Scripts/Menus/Creditos.gd" id="1_o850o"]
@@ -39,6 +39,11 @@ font_color = Color(0.509804, 0.556863, 0.580392, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_k4vsi"]
 font = ExtResource("2_f2hi1")
 font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_gmwbx"]
+font = ExtResource("2_f2hi1")
+font_size = 32
+font_color = Color(0, 0.45098, 0.717647, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wesil"]
 texture = ExtResource("4_6h1y8")
@@ -89,7 +94,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 follow_focus = true
-scroll_vertical = 100
+scroll_vertical = 589
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 script = ExtResource("2_65fo7")
@@ -146,6 +151,15 @@ text = "Fuentes:
     https://ztdp.ca/
  "
 label_settings = SubResource("LabelSettings_k4vsi")
+
+[node name="Label7" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Inspiraciones:
+
+    popcar2
+    https://github.com/popcar2/GodotOS
+ "
+label_settings = SubResource("LabelSettings_gmwbx")
 
 [node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 200)

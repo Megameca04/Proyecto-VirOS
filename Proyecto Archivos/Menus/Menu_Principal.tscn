@@ -60,7 +60,7 @@ alignment = 1
 layout_mode = 2
 
 [node name="InicioJuego" type="TextureButton" parent="VBoxContainer/CenterContainer3"]
-texture_filter = 5
+texture_filter = 3
 texture_repeat = 2
 custom_minimum_size = Vector2(300, 150)
 layout_mode = 2
@@ -73,7 +73,7 @@ stretch_mode = 5
 layout_mode = 2
 
 [node name="Tutorial" type="TextureButton" parent="VBoxContainer/CenterContainer2"]
-texture_filter = 5
+texture_filter = 3
 texture_repeat = 2
 custom_minimum_size = Vector2(300, 150)
 layout_mode = 2
@@ -86,7 +86,7 @@ stretch_mode = 5
 layout_mode = 2
 
 [node name="Creditos" type="TextureButton" parent="VBoxContainer/CenterContainer"]
-texture_filter = 5
+texture_filter = 3
 texture_repeat = 2
 custom_minimum_size = Vector2(300, 150)
 layout_mode = 2
