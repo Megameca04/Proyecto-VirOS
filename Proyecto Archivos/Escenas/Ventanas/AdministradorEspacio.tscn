@@ -23,7 +23,7 @@ anchors_preset = 0
 offset_right = 400.0
 offset_bottom = 280.0
 script = ExtResource("1_wssec")
-max_cantidad_archivos = 10
+max_cantidad_archivos = 100
 
 [node name="BarraTitulo" type="NinePatchRect" parent="."]
 custom_minimum_size = Vector2(0, 20)
@@ -87,6 +87,7 @@ vertical_alignment = 1
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="gui_input" from="BarraTitulo" to="." method="_on_barra_titulo_gui_input"]
 [connection signal="mouse_entered" from="BarraTitulo" to="." method="_on_barra_titulo_mouse_entered"]
 [connection signal="mouse_exited" from="BarraTitulo" to="." method="_on_barra_titulo_mouse_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

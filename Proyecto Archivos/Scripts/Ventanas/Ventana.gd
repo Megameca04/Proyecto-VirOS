@@ -13,11 +13,14 @@ var current_click = ClickStates.NONE
 
 var on_top_bar := false
 var on_window := false
-var moving := false
+
+var can_move := false
 
 var emmited_hide := false
 
 var offset := Vector2.ZERO
+var initial_mov_pos := Vector2.ZERO
+var init_mou_pos := Vector2.ZERO
 
 @onready var Grid := $Cuerpo/ScrollContainer/GridContainer
 
@@ -35,9 +38,11 @@ func _ready():
 
 func _physics_process(_delta): 
 	
+	if can_move:
+		global_position = initial_mov_pos + (get_global_mouse_position() - init_mou_pos)
+	
 	if on_top_bar:
 		if current_click == ClickStates.PRESSED:
-			moving = true
 			move_to_front()
 			if !emmited_hide:
 				hide_clipboard.emit()
@@ -45,10 +50,6 @@ func _physics_process(_delta):
 		else:
 			offset = get_local_mouse_position()
 			emmited_hide = false
-			moving = false
-	
-	if moving:
-		global_position = get_global_mouse_position() - offset
 
 func add_file(file: Object , copy : bool):
 	if copy:
@@ -86,3 +87,12 @@ func _on_mouse_exited():
 func _on_gui_input(event):
 	if on_window and event.is_action_pressed("r_click"):
 		show_clipboard.emit(self, get_global_mouse_position())
+
+func _on_barra_titulo_gui_input(event):
+	if event is InputEventMouseButton and event.button_index == 1:
+		if event.is_pressed():
+			can_move = true
+			initial_mov_pos = global_position
+			init_mou_pos = get_global_mouse_position()
+		else:
+			can_move = false

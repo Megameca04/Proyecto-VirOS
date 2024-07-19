@@ -14,10 +14,12 @@ var cycles = -1
 
 var on_top_bar := false
 var on_window := false
-
+var can_move := false
 var emmited_hide := false
 
 var offset := Vector2.ZERO
+var initial_mov_pos := Vector2.ZERO
+var init_mou_pos := Vector2.ZERO
 
 @onready var Grid := $Cuerpo/VBoxContainer/GridContainer
 
@@ -27,14 +29,15 @@ func _ready():
 	connect("show_clipboard",Callable(get_parent(),"show_clipboard"))
 	connect("hide_clipboard",Callable(get_parent(),"hide_clipboard"))
 	
-	
 	add_new_cleaner()
 
 func _physics_process(_delta): 
 	
+	if can_move:
+		global_position = initial_mov_pos + (get_global_mouse_position() - init_mou_pos)
+	
 	if on_top_bar:
 		if current_click == ClickStates.PRESSED:
-			global_position = get_global_mouse_position() - offset
 			move_to_front()
 			if !emmited_hide:
 				hide_clipboard.emit()
@@ -55,7 +58,7 @@ func get_clicked_file(file : Object, button : int):
 func add_new_cleaner():
 	if Grid.get_child_count() < 5:
 		for i in range(int(floor(1.0 + cycles/3.0))):
-			if Grid.get_child_count() < 5:
+			if Grid.get_child_count() < cycles:
 				var nc = Singletons.CLEANER.instantiate()
 				nc.connect("clicked", Callable(self,"get_clicked_file"))
 				Grid.add_child(nc)
@@ -79,3 +82,12 @@ func _on_mouse_exited():
 func _on_gui_input(event):
 	if on_window and event.is_action_pressed("r_click"):
 		show_clipboard.emit(self, get_global_mouse_position())
+
+func _on_barra_titulo_gui_input(event):
+	if event is InputEventMouseButton and event.button_index == 1:
+		if event.is_pressed():
+			can_move = true
+			initial_mov_pos = global_position
+			init_mou_pos = get_global_mouse_position()
+		else:
+			can_move = false

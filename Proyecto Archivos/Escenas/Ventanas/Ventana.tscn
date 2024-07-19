@@ -17,10 +17,10 @@ script = ExtResource("1_tgup3")
 [node name="BarraTitulo" type="NinePatchRect" parent="."]
 custom_minimum_size = Vector2(620, 20)
 layout_mode = 2
-anchor_right = 1.0
-anchor_bottom = 0.062
-offset_right = -160.0
-offset_bottom = 0.16
+offset_right = 620.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 0
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 2
@@ -35,7 +35,7 @@ axis_stretch_vertical = 2
 custom_minimum_size = Vector2(620, 300)
 layout_mode = 2
 offset_top = 20.0
-offset_right = 460.0
+offset_right = 620.0
 offset_bottom = 320.0
 mouse_filter = 1
 texture = ExtResource("3_xnedt")
@@ -64,5 +64,6 @@ columns = 8
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="gui_input" from="BarraTitulo" to="." method="_on_barra_titulo_gui_input"]
 [connection signal="mouse_entered" from="BarraTitulo" to="." method="_on_barra_titulo_mouse_entered"]
 [connection signal="mouse_exited" from="BarraTitulo" to="." method="_on_barra_titulo_mouse_exited"]
