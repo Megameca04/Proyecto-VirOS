@@ -185,7 +185,6 @@ libraries = {
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 process_mode = 1
-z_index = 10
 texture_filter = 1
 custom_minimum_size = Vector2(0, 42)
 layout_mode = 1
@@ -201,6 +200,7 @@ patch_margin_left = 129
 patch_margin_right = 1
 
 [node name="Pausa" type="Button" parent="."]
+process_mode = 1
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
@@ -220,3 +220,5 @@ flat = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_ee738")
+
+[connection signal="pressed" from="Pausa" to="." method="_on_pausa_pressed"]

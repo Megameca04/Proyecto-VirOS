@@ -4,7 +4,7 @@ signal clicked(file : Object, button : int)
 
 var is_selected = false
 
-const NAMES = {"KEY_0":"ensayo-1",
+const NAMES = {0:"ensayo-1",
 	1:"Ensayo-3.5-Oficial",
 	2:"poemas-profundos",
 	3:"diario [NO_LEER]",
@@ -12,7 +12,7 @@ const NAMES = {"KEY_0":"ensayo-1",
 	5:"SUPERguion"}
 
 func _ready():
-	$Label.text = "[center]"+NAMES[randi_range(1,5)]
+	$Label.text = "[center]"+NAMES[randi_range(0,5)]
 
 func _process(_delta):
 	if is_selected:

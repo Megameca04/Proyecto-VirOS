@@ -1,8 +1,19 @@
-extends Container
+extends Control
 
 signal clicked(file : Object, button : int)
 
+const NAMES = {
+	0:"Warfarin",
+	1:"Mambo 36",
+	2:"Salvacolina",
+	3:"AM-BIEN",
+	4:"BACTRO-BAN",
+	5:"VERONAL"}
+
 var is_selected = false
+
+func _ready():
+	$Label.text = "[center]"+NAMES[randi_range(0,5)]
 
 func _process(_delta):
 	if is_selected:

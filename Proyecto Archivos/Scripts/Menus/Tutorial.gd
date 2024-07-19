@@ -31,6 +31,10 @@ func show_button_at_move():
 func show_button_at_clipboard():
 	$TextBubble/Button.show()
 
-
 func _on_button_button_down():
 	$TextBubble/SonidoBoton.play()
+
+func _on_saltar_pressed():
+	ScenesManager.watched_tutorial = true
+	get_tree().paused = false
+	ScenesManager.change_scene_to(ScenesManager.Scenes.MAIN_GAME)

@@ -1,10 +1,6 @@
-[gd_scene load_steps=45 format=3 uid="uid://xu3xhfj5o4b7"]
+[gd_scene load_steps=41 format=3 uid="uid://xu3xhfj5o4b7"]
 
 [ext_resource type="Script" path="res://Scripts/Menus/Tutorial.gd" id="1_bf38m"]
-[ext_resource type="Script" path="res://Scripts/Escenas de juego/GameUI.gd" id="2_v8sa5"]
-[ext_resource type="PackedScene" uid="uid://dx2xkc3smv103" path="res://Escenas/Ventanas/VentanaFinJuego.tscn" id="3_typ0o"]
-[ext_resource type="PackedScene" uid="uid://by77ic0hoxyx1" path="res://Escenas/Ventanas/VentanaVictoria.tscn" id="4_ieood"]
-[ext_resource type="PackedScene" uid="uid://by4b8ccajks0t" path="res://Escenas/Ventanas/VentanaPausa.tscn" id="5_ipfxj"]
 [ext_resource type="Texture2D" uid="uid://u1g6saxno5i1" path="res://Sprites/Fondos/lineaabajo.png" id="6_i8htq"]
 [ext_resource type="FontFile" uid="uid://dfg1k6mc5n5vw" path="res://Fuentes/Pixellari.ttf" id="7_fprff"]
 [ext_resource type="Texture2D" uid="uid://dkn5052bg2qi3" path="res://Sprites/Botones/Normal.png" id="8_76jpn"]
@@ -434,7 +430,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2(210, 320)]
+"values": [Vector2(210, 280)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -446,7 +442,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2(330, 110)]
+"values": [Vector2(330, 150)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -470,7 +466,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["Para poder eliminar los virus tendrás que mover los archivos limpiadores a las carpetas en las que se encuentran."]
+"values": ["Para poder eliminar los virus tendrás que mover los limpiadores a las carpetas en las que se encuentran. ¡mantente alerta porque pueden desactivarse!"]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -674,7 +670,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2(630, 330)]
+"values": [Vector2(630, 310)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -686,7 +682,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2(330, 110)]
+"values": [Vector2(330, 130)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -710,7 +706,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["Si haces click derecho sobre un archivo, abres el portapapeles, que te permite copiar, cortar, eliminar y pegar archivos."]
+"values": ["Si haces click izquierdo sobre un archivo, lo seleccionas, y al darle click derecho abres el portapapeles. ¡Prueba a mover o copiar un archivo!"]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -923,6 +919,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(210, 320)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextBubble:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(330, 130)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_476bs"]
 _data = {
@@ -938,100 +946,6 @@ _data = {
 [node name="Tutorial" type="Node"]
 process_mode = 3
 script = ExtResource("1_bf38m")
-
-[node name="GameUI" type="Control" parent="."]
-process_mode = 3
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("2_v8sa5")
-
-[node name="ColorRect" type="ColorRect" parent="GameUI"]
-z_index = 2
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 0)
-
-[node name="VenFinJuego" parent="GameUI" instance=ExtResource("3_typ0o")]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = -0.003
-anchor_right = 0.5
-anchor_bottom = -0.003
-offset_left = -206.0
-offset_top = -222.056
-offset_right = 294.0
-offset_bottom = -22.056
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VentanaVictoria" parent="GameUI" instance=ExtResource("4_ieood")]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = 145.0
-offset_top = -219.0
-offset_right = 525.0
-offset_bottom = -49.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VentanaPausa" parent="GameUI" instance=ExtResource("5_ipfxj")]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 98.0
-offset_top = -54.0
-offset_right = 478.0
-offset_bottom = 116.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="NinePatchRect" type="NinePatchRect" parent="GameUI"]
-process_mode = 1
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(0, 42)
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.935
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 0.119995
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("6_i8htq")
-patch_margin_left = 129
-patch_margin_right = 1
-
-[node name="Pausa" type="Button" parent="GameUI"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 2.0
-offset_top = 608.0
-offset_right = 128.0
-offset_bottom = 646.0
-theme = SubResource("Theme_m7u8i")
-text = "PAUSA"
-flat = true
-
-[node name="Game_over" type="AudioStreamPlayer" parent="GameUI"]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="GameUI"]
-stream = ExtResource("11_cd4na")
 
 [node name="Escritorio" type="Control" parent="." groups=["Escritorio"]]
 process_mode = 1
@@ -1090,6 +1004,59 @@ offset_bottom = 300.0
 [node name="ClickDer" type="AudioStreamPlayer" parent="Escritorio"]
 stream = ExtResource("11_cd4na")
 
+[node name="GameUI" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="GameUI"]
+process_mode = 1
+texture_filter = 1
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.935
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.119995
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_i8htq")
+patch_margin_left = 129
+patch_margin_right = 1
+
+[node name="Saltar" type="Button" parent="GameUI"]
+process_mode = 3
+texture_filter = 1
+layout_mode = 0
+offset_left = 2.0
+offset_top = 608.0
+offset_right = 128.0
+offset_bottom = 646.0
+theme = SubResource("Theme_m7u8i")
+text = "SALTAR"
+flat = true
+
+[node name="ColorRect" type="ColorRect" parent="GameUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Game_over" type="AudioStreamPlayer" parent="GameUI"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="GameUI"]
+stream = ExtResource("11_cd4na")
+
 [node name="VenAlertaTut" type="Control" parent="."]
 process_mode = 3
 texture_filter = 1
@@ -1098,9 +1065,9 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 326.0
-offset_top = 224.0
+offset_top = 2492.0
 offset_right = 826.0
-offset_bottom = 424.0
+offset_bottom = 2692.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -1179,7 +1146,7 @@ texture_filter = 1
 offset_left = 210.0
 offset_top = 320.0
 offset_right = 540.0
-offset_bottom = 430.0
+offset_bottom = 450.0
 theme = ExtResource("12_us3ah")
 texture = ExtResource("23_et2s7")
 patch_margin_left = 6
@@ -1202,6 +1169,8 @@ theme = ExtResource("12_us3ah")
 text = "Eso debería ser suficiente ¡Buena suerte!"
 scroll_active = false
 scroll_following = true
+visible_characters = 0
+visible_ratio = 0.0
 
 [node name="Button" type="Button" parent="TextBubble"]
 layout_mode = 1
@@ -1216,12 +1185,9 @@ offset_right = 0.0799866
 offset_bottom = 0.0299988
 icon = ExtResource("24_450wp")
 
-[node name="SonidoBoton" type="AudioStreamPlayer" parent="TextBubble"]
-stream = ExtResource("11_cd4na")
-
-[connection signal="button_down" from="GameUI/Pausa" to="GameUI" method="_on_pausa_button_down"]
 [connection signal="moved_files" from="Escritorio" to="." method="show_button_at_clipboard"]
 [connection signal="moved" from="Escritorio/Ventana" to="." method="show_button_at_move"]
 [connection signal="moved" from="Escritorio/Ventana2" to="." method="show_button_at_move"]
-[connection signal="button_down" from="TextBubble/Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="GameUI/Saltar" to="GameUI" method="_on_pausa_button_down"]
+[connection signal="pressed" from="GameUI/Saltar" to="." method="_on_saltar_pressed"]
 [connection signal="pressed" from="TextBubble/Button" to="." method="_on_button_pressed"]

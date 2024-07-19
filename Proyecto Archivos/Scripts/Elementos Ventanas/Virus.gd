@@ -1,4 +1,4 @@
-extends MarginContainer
+extends Control
 
 signal cloned()
 
@@ -16,8 +16,19 @@ const CloningPos = {
 
 var tier := 0
 
+const NAMES = {
+	0:"ILOVEYOU",
+	1:"Sasser",
+	2 :"Byte Bandit",
+	3:"Creeper",
+	4:"mydoom",
+	5:"xafecopy",
+	6:"Anna Kournikova",
+	7:"Netwky"}
+
 func _ready():
-	$TextureRect.texture = load("res://Sprites/Iconos/virus"+str(tier+1)+".png")
+	$Label.text = "[center]"+NAMES[randi_range(0,7)]
+	$MarginContainer/TextureRect.texture = load("res://Sprites/Iconos/virus"+str(tier+1)+".png")
 	$Timer.start()
 	cloned.connect(get_parent().get_parent().get_parent().get_parent().aud_clon)
 
