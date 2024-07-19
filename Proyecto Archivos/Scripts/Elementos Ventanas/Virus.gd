@@ -1,5 +1,7 @@
 extends MarginContainer
 
+signal cloned()
+
 const SKINS = {
 	1: "res://Sprites/Iconos/virus.png",
 	
@@ -22,6 +24,7 @@ var tier := 0
 func _ready():
 	$TextureRect.texture = load("res://Sprites/Iconos/virus"+str(tier+1)+".png")
 	$Timer.start()
+	cloned.connect(get_parent().get_parent().get_parent().get_parent().aud_clon)
 
 func _on_timer_timeout():
 	var can_clone = false
@@ -40,4 +43,5 @@ func _on_timer_timeout():
 					nueva_instancia.tier = 1
 			
 		add_sibling(nueva_instancia)
+		cloned.emit()
 

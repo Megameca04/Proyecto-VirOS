@@ -30,7 +30,7 @@ func _on_timer_timeout():
 		var to_erase = virus_in_window.pick_random()
 		to_erase.queue_free()
 		
-		if randf() > 0.33:
-			$Timer.start()
-		else:
+		if randf() < 0.33:
 			$MarginContainer/TextureRect.texture = load("res://Sprites/Iconos/pillDeath.png")
+			$Timer.one_shot = true
+			$Timer.stop()

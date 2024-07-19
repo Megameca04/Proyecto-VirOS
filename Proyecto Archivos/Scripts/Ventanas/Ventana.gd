@@ -6,6 +6,7 @@ signal hide_clipboard()
 
 signal moved()
 
+
 enum ClickStates {
 	NONE,
 	PRESSED
@@ -25,6 +26,7 @@ var initial_mov_pos := Vector2.ZERO
 var init_mou_pos := Vector2.ZERO
 
 @onready var Grid := $Cuerpo/ScrollContainer/GridContainer
+@onready var aud_clon := Callable(self,"play_sfx_cloning")
 
 func _ready():
 	connect("file_clicked",Callable(get_parent(),"clicked_file"))
@@ -63,6 +65,10 @@ func add_file(file: Object , copy : bool):
 
 func remove_file(file : Object):
 	call_deferred("remove_child",file)
+
+func play_sfx_cloning():
+	if !$VirusClonado.playing:
+		$VirusClonado.play()
 
 func _input(event):
 	if event.is_action_pressed("l_click"):
