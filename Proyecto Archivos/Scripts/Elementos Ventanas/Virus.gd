@@ -2,11 +2,6 @@ extends MarginContainer
 
 signal cloned()
 
-const SKINS = {
-	1: "res://Sprites/Iconos/virus.png",
-	
-}
-
 enum TIERS {
 	LOW,
 	MEDIUM,
@@ -14,9 +9,9 @@ enum TIERS {
 }
 
 const CloningPos = {
-	0: 0.5,
-	1: 0.66,
-	2: 0.8
+	0: 0.3,
+	1: 0.4,
+	2: 0.5
 }
 
 var tier := 0
@@ -36,10 +31,10 @@ func _on_timer_timeout():
 		var nueva_instancia = Singletons.VIRUS.instantiate()
 		match tier:
 			0:
-				if randf() < 0.25:
+				if randf() < 0.4:
 					nueva_instancia.tier = 1
 			1:
-				if randf() < 0.1:
+				if randf() < 0.25:
 					nueva_instancia.tier = 1
 			
 		add_sibling(nueva_instancia)

@@ -13,13 +13,21 @@ config_version=5
 config/name="Proyecto Archivos"
 run/main_scene="res://Menus/Menu_Principal.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+boot_splash/image="res://Sprites/fondoGrande.png"
+boot_splash/use_filter=false
 config/icon="res://icon.svg"
 config/windows_native_icon="res://Sprites/icono.ico"
+boot_splash/minimum_display_time=10
 
 [autoload]
 
 Singletons="*res://Scripts/Singletons.gd"
 ScenesManager="*res://Scripts/ScenesManager.gd"
+
+[display]
+
+window/size/mode=2
+window/stretch/mode="canvas_items"
 
 [input]
 

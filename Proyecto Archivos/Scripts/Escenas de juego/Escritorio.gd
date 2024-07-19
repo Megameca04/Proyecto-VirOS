@@ -89,9 +89,7 @@ func move_files(copy : bool):
 	hide_clipboard()
 
 func spawn_virus():
-	var infected_first_window = false
 	for i in get_children():
 		if i.is_in_group("Ventana"):
-			if randi_range(1,3) == 1 or !infected_first_window:
+			for j in range(randi_range(1,3)):
 				i.add_file(Singletons.VIRUS.instantiate(),true)
-				infected_first_window = true

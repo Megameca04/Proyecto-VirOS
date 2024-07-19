@@ -67,7 +67,7 @@ size_flags_vertical = 6
 columns = 5
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 3.0
 autostart = true
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
