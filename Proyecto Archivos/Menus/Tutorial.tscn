@@ -820,6 +820,7 @@ grow_vertical = 2
 script = ExtResource("2_v8sa5")
 
 [node name="ColorRect" type="ColorRect" parent="GameUI"]
+z_index = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -967,9 +968,9 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 326.0
-offset_top = 2816.0
+offset_top = -100.0
 offset_right = 826.0
-offset_bottom = 3016.0
+offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -1029,7 +1030,7 @@ visible_ratio = 0.433
 process_mode = 3
 texture_filter = 1
 position = Vector2(140, 470)
-scale = Vector2(5, 5)
+scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("22_u6k41")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -1044,10 +1045,10 @@ process_mode = 3
 texture_filter = 1
 offset_left = 210.0
 offset_top = 320.0
-offset_right = 450.0
-offset_bottom = 390.0
+offset_right = 540.0
+offset_bottom = 430.0
 theme = ExtResource("12_us3ah")
-texture = ExtResource("23_rkjx7")
+texture = ExtResource("23_et2s7")
 patch_margin_left = 6
 patch_margin_top = 3
 patch_margin_right = 5
@@ -1065,11 +1066,11 @@ offset_top = 0.0299997
 offset_right = 0.0799866
 offset_bottom = -0.0100021
 theme = ExtResource("12_us3ah")
-text = "!Oh no! Parece que tu PC se infectó con un virus."
+text = "Eso debería ser suficiente ¡Buena suerte!"
 scroll_active = false
 scroll_following = true
-visible_characters = 24
-visible_ratio = 0.5
+visible_characters = 0
+visible_ratio = 0.0
 
 [node name="Button" type="Button" parent="TextBubble"]
 layout_mode = 1
