@@ -13,6 +13,7 @@ var current_click = ClickStates.NONE
 
 var on_top_bar := false
 var on_window := false
+var moving := false
 
 var emmited_hide := false
 
@@ -36,7 +37,7 @@ func _physics_process(_delta):
 	
 	if on_top_bar:
 		if current_click == ClickStates.PRESSED:
-			global_position = get_global_mouse_position() - offset
+			moving = true
 			move_to_front()
 			if !emmited_hide:
 				hide_clipboard.emit()
@@ -44,6 +45,10 @@ func _physics_process(_delta):
 		else:
 			offset = get_local_mouse_position()
 			emmited_hide = false
+			moving = false
+	
+	if moving:
+		global_position = get_global_mouse_position() - offset
 
 func add_file(file: Object , copy : bool):
 	if copy:

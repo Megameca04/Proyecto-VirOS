@@ -114,6 +114,9 @@ stretch_mode = 5
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_00jke")
 
+[connection signal="button_down" from="VBoxContainer/CenterContainer3/InicioJuego" to="." method="_on_inicio_juego_button_down"]
 [connection signal="pressed" from="VBoxContainer/CenterContainer3/InicioJuego" to="." method="_on_inicio_juego_pressed"]
+[connection signal="button_down" from="VBoxContainer/CenterContainer2/Tutorial" to="." method="_on_inicio_juego_button_down"]
 [connection signal="pressed" from="VBoxContainer/CenterContainer2/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="button_down" from="VBoxContainer/CenterContainer/Creditos" to="." method="_on_inicio_juego_button_down"]
 [connection signal="pressed" from="VBoxContainer/CenterContainer/Creditos" to="." method="_on_creditos_pressed"]
