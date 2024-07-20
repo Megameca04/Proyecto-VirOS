@@ -105,3 +105,4 @@ stream = ExtResource("13_mvjb1")
 [connection signal="pressed" from="HBoxContainer/Copiar/BotonCopiar" to="." method="_on_boton_copiar_pressed"]
 [connection signal="pressed" from="HBoxContainer/Cortar/BotonCortar" to="." method="_on_boton_cortar_pressed"]
 [connection signal="pressed" from="HBoxContainer/Pegar/BotonPegar" to="." method="_on_boton_pegar_pressed"]
+[connection signal="pressed" from="HBoxContainer/Borrar/BotonBorrar" to="." method="_on_boton_borrar_pressed"]

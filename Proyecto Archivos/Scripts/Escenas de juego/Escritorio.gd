@@ -38,8 +38,9 @@ func clicked_file(window : Object, file : Object, button : int):
 		manage_click(file, button)
 
 func clear_selection():
-	for i in selected_pool:
-		i.is_selected = false
+	if selected_pool.has(null):
+		for i in selected_pool:
+			i.is_selected = false
 	
 	selected_pool.clear()
 
@@ -75,7 +76,7 @@ func move_files(copy : bool):
 	moved_files.emit()
 	for i in files_in_clipboard:
 		if i.is_in_group("Limpiador"):
-					window_with_clipboard.add_file(i,false)
+			window_with_clipboard.add_file(i,false)
 		else:
 			if copy:
 				window_with_clipboard.add_file(Singletons.FILE.instantiate(),true)
@@ -87,6 +88,10 @@ func move_files(copy : bool):
 		files_in_clipboard.clear()
 	clear_selection()
 	hide_clipboard()
+
+func erase_files():
+	for i in selected_pool:
+		i.queue_free()
 
 func spawn_virus():
 	for i in get_children():

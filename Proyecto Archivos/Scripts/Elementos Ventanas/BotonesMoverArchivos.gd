@@ -2,6 +2,7 @@ extends PanelContainer
 
 signal select_files()
 signal move_files(copy : bool)
+signal erase_file()
 
 var copy_at_move = false
 
@@ -15,6 +16,7 @@ var copy_at_move = false
 func _ready():
 	connect("select_files",Callable(get_parent(),"select_files"))
 	connect("move_files",Callable(get_parent(),"move_files"))
+	connect("erase_file",Callable(get_parent(),"erase_files"))
 
 func _process(_delta):
 	size = $HBoxContainer.size
@@ -50,4 +52,7 @@ func _on_boton_cortar_pressed():
 func _on_boton_pegar_pressed():
 	move_files.emit(copy_at_move)
 	$Pegar.play()
-	
+
+func _on_boton_borrar_pressed():
+	erase_file.emit()
+	$Cortar.play()
