@@ -38,9 +38,8 @@ func clicked_file(window : Object, file : Object, button : int):
 		manage_click(file, button)
 
 func clear_selection():
-	if selected_pool.has(null):
-		for i in selected_pool:
-			i.is_selected = false
+	for i in selected_pool:
+		i.is_selected = false
 	
 	selected_pool.clear()
 
@@ -91,7 +90,10 @@ func move_files(copy : bool):
 
 func erase_files():
 	for i in selected_pool:
-		i.queue_free()
+		i.call_deferred("queue_free")
+	
+	selected_pool.clear()
+	
 
 func spawn_virus():
 	for i in get_children():

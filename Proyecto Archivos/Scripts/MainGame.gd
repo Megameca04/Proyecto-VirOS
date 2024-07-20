@@ -23,3 +23,7 @@ func show_pause():
 func hide_pause():
 	$GameUI.show_animation("MainGame/PauseHide")
 	get_tree().paused = false
+
+
+func _on_audio_stream_player_finished():
+	$AudioStreamPlayer.play()
