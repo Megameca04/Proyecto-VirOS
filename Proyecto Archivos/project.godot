@@ -10,12 +10,12 @@ config_version=5
 
 [application]
 
-config/name="Proyecto Archivos"
+config/name="VirOS"
 run/main_scene="res://Menus/Menu_Principal.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/image="res://Sprites/fondoGrande.png"
 boot_splash/use_filter=false
-config/icon="res://icon.svg"
+config/icon="res://Sprites/itchioPortada.png"
 config/windows_native_icon="res://Sprites/icono.ico"
 boot_splash/minimum_display_time=10
 
